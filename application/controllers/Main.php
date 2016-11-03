@@ -4,6 +4,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
 
     public function index(){
-        echo 'test';
+        /*
+         * Main page
+         * url "/"
+         */
+        echo 'index';
+        $this->load->model('Status');
+        $this->data['statuses'] = $this->Status->getStatusList();
+
+        $this->load->view('layouts/header');
+        $this->load->view('main/main', $this->data);
+        $this->load->view('layouts/footer');
+    }
+
+    public function about(){
+        /*
+         * About MAN page
+         * url "/about"
+         */
+
+        $this->load->model('Status');
+//        $this->data['statuses'] = $this->Status->getStatusList();
+
+        $this->load->model('Competition');
+        $competitions = $this->Competition->getCompetitionList();
+        var_dump($competitions);
+
+//        $this->load->view('layouts/header');
+//        $this->load->view('main/about', $this->data);
+//        $this->load->view('layouts/footer');
     }
 }
