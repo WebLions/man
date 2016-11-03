@@ -9,12 +9,12 @@ class Main extends CI_Controller {
          * url "/"
          */
         echo 'index';
-        $this->load->model('Status');
+        $this->load->model('Status_model');
         $this->data['statuses'] = $this->Status->getStatusList();
 
-        $this->load->view('layouts/header');
+        $this->load->view('header');
         $this->load->view('main/main', $this->data);
-        $this->load->view('layouts/footer');
+        $this->load->view('footer');
     }
 
     public function about(){
@@ -31,7 +31,7 @@ class Main extends CI_Controller {
         var_dump($competitions);
 
 //        $this->load->view('layouts/header');
-//        $this->load->view('main/about', $this->data);
+//        $this->load->view('about/about', $this->data);
 //        $this->load->view('layouts/footer');
     }
 }
