@@ -48,25 +48,25 @@ class Admin extends CI_Controller {
 
     }
 
-    public function add_status(){
-        /*
-         * Add status page
-         * Url "/admin/add_status"
-         */
-    }
-
-    public function edit_status(){
-        /*
-         * Edit status page
-         * Url "/admin/edit_page"
-         */
-    }
-
-    public function delete_status(){
-        /*
-         * Delete status page
-         * Url "/admin/delete_page"
-         */
-    }
+//    public function add_status(){
+//        /*
+//         * Add status page
+//         * Url "/admin/add_status"
+//         */
+//    }
+//
+//    public function edit_status(){
+//        /*
+//         * Edit status page
+//         * Url "/admin/edit_page"
+//         */
+//    }
+//
+//    public function delete_status(){
+//        /*
+//         * Delete status page
+//         * Url "/admin/delete_page"
+//         */
+//    }
 
 }

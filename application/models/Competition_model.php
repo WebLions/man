@@ -10,9 +10,11 @@ class Competition_model extends CI_Model
             return false;
         }
         $result = $result->result_array();
-//        $result = $this->getTree($result);
-        print_r($result);
-        return $result;
+        $list = array();
+        foreach ($result as $value){
+            $list[] = $value['status'];
+        }
+        return $list;
     }
 
     private function getTree($data = array())
