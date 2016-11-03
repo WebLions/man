@@ -10,6 +10,10 @@ class Status_model extends CI_Model
             return false;
         }
         $result = $result->result_array();
-        return $result;
+        $list = array();
+        foreach ($result as $value){
+            $list[] = $value['status'];
+        }
+        return $list;
     }
 }

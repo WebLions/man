@@ -7,10 +7,10 @@ class Main extends CI_Controller {
         /*
          * Main page
          * url "/"
+         * @array $data['status_list'] -> view
          */
-        echo 'index';
-        $this->load->model('Status');
-        $this->data['statuses'] = $this->Status->getStatusList();
+        $this->load->model('Status_model');
+        $this->data['status_list'] = $this->Status_model->getStatusList();
 
         $this->load->view('layouts/header');
         $this->load->view('main/main', $this->data);
@@ -21,14 +21,12 @@ class Main extends CI_Controller {
         /*
          * About MAN page
          * url "/about"
+         * @array $data['status_list'] -> view
          */
 
         $this->load->model('Status_model');
-//        $this->data['statuses'] = $this->Status->getStatusList();
+        $this->data['status_list'] = $this->Status_model->getStatusList();
 
-        $this->load->model('Competition_model');
-        $competitions = $this->Competition_model->getCompetitionList();
-        var_dump($competitions);
 
 //        $this->load->view('layouts/header');
 //        $this->load->view('main/about', $this->data);
