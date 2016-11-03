@@ -12,9 +12,9 @@ class Main extends CI_Controller {
         $this->load->model('Status_model');
         $this->data['status_list'] = $this->Status_model->getStatusList();
 
-        $this->load->view('layouts/header');
+        $this->load->view('header');
         $this->load->view('main/main', $this->data);
-        $this->load->view('layouts/footer');
+        $this->load->view('footer');
     }
 
     public function about(){
@@ -29,7 +29,7 @@ class Main extends CI_Controller {
 
 
 //        $this->load->view('layouts/header');
-//        $this->load->view('main/about', $this->data);
+//        $this->load->view('about/about', $this->data);
 //        $this->load->view('layouts/footer');
     }
 }
