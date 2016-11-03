@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Request extends CI_Model
+class Request_model extends CI_Model
 {
     public function getRequestList()
     {

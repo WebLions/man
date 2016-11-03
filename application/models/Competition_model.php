@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Competition extends CI_Model
+class Competition_model extends CI_Model
 {
     public function getCompetitionList()
     {

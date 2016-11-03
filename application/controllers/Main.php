@@ -23,11 +23,11 @@ class Main extends CI_Controller {
          * url "/about"
          */
 
-        $this->load->model('Status');
+        $this->load->model('Status_model');
 //        $this->data['statuses'] = $this->Status->getStatusList();
 
-        $this->load->model('Competition');
-        $competitions = $this->Competition->getCompetitionList();
+        $this->load->model('Competition_model');
+        $competitions = $this->Competition_model->getCompetitionList();
         var_dump($competitions);
 
 //        $this->load->view('layouts/header');
