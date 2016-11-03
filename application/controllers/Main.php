@@ -27,7 +27,6 @@ class Main extends CI_Controller {
         $this->load->model('Status_model');
         $this->data['status_list'] = $this->Status_model->getStatusList();
 
-
 //        $this->load->view('layouts/header');
 //        $this->load->view('about/about', $this->data);
 //        $this->load->view('layouts/footer');
