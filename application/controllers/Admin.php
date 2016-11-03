@@ -9,10 +9,12 @@ class Admin extends CI_Controller {
          * Url "/admin"
          * List of request from users
          */
-        echo 'testadmin';
+
+        $this->load->model('Request_model');
+        $this->data['request_list'] = $this->Request_model->getRequestList();
 
         $this->load->view('layouts/admin/header');
-        $this->load->view('admin/admin');
+        $this->load->view('admin/admin', $this->data);
         $this->load->view('layouts/admin/footer');
     }
 
@@ -27,11 +29,31 @@ class Admin extends CI_Controller {
         $this->load->view('layouts/admin/footer');
     }
 
+    public function post_login()
+    {
+        $post = $this->input->post();
+        if (empty($post)) {
+            return false;
+        }
+        if ($this->User_model->login($post['login'], $post['password'])) {
+            $_SESSION['admin'] = true;
+            redirect('/admin', 'refresh');
+        } else {
+            echo 'Ошибка авторизации';
+        }
+
+    }
+
     public function logout(){
         /*
          * Logout from admin page
          * Url "/admin/logout"
          */
+        if(isset($_SESSION['admin']) && $_SESSION['admin'])
+        {
+            $_SESSION['admin'] = false;
+        }
+        redirect('/', 'refresh');
     }
 
     public function statuses(){
@@ -40,10 +62,12 @@ class Admin extends CI_Controller {
          * Url "/admin/statuses"
          * List of statuses like teacher, student etc
          */
-        echo 'statusesadmin';
+
+        $this->load->model('Status_model');
+        $this->data['status_list'] = $this->Status_model->getStatusList();
 
         $this->load->view('layouts/admin/header');
-        $this->load->view('admin/statuses');
+        $this->load->view('admin/statuses', $this->data);
         $this->load->view('layouts/admin/footer');
 
     }
