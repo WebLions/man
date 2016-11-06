@@ -2,7 +2,7 @@
     <section class="picture-section">
         <img src="/front-core/images/about.png"/>
     </section>
-    <div class="props-section">
+    <section class="props-section">
         <header class="section-title">
             <h2 class="main-font">Сфери діяльності</h2>
         </header>
@@ -15,13 +15,19 @@
                     <h2>Конкурси МАН</h2>
                 </div>
                 <section class="props-content">
-                    <header>
-                        Компьютерні системи та мережі
-                    </header>
-                    <article>
-                        <p>1251235</p>
-                        <p>1223626216312</p>
-                    </article>
+                    <?php foreach ($this->data['competitive_list'] as $competitiveArray):?>
+                        <div class="props-item-line">
+                            <header>
+                                <p><?=$competitiveArray['competition']?> <p>
+                                <i><img src="/front-core/images/arrow.png"></i>
+                            </header>
+                            <article>
+                            <?php foreach($competitiveArray as $competitiveItem):?>
+                                    <p><?php if (is_array($competitiveItem))echo $competitiveItem['competition'] ?></p>
+                            <? endforeach;?>
+                            </article>
+                        </div>
+                    <? endforeach;?>
                 </section>
             </div>
             <div class="props-item">
@@ -32,13 +38,7 @@
                     <h2>Конкурси МАН</h2>
                 </div>
                 <section class="props-content">
-                    <header>
-                        Компьютерні системи та мережі
-                    </header>
-                    <article>
-                        <p>1251235</p>
-                        <p>1223626216312</p>
-                    </article>
+                    <h2>Робототехнікa<br>Open Data</h2>
                 </section>
             </div>
             <div class="props-item">
@@ -49,18 +49,21 @@
                     <h2>Конкурси МАН</h2>
                 </div>
                 <section class="props-content">
-                    <header>
-                        Компьютерні системи та мережі
-                    </header>
-                    <article>
-                        <p>1251235</p>
-                        <p>1223626216312</p>
-                    </article>
+                    <h2>GameHub(навчання створення ігр)<br>Інше</h2>
                 </section>
             </div>
         </div>
-    </div>
-
+    </section>
+    <section>
+        <div class="container">
+            <header class="section-title">
+                <h2 class="main-font">Подайте заявку прямо зараз!</h2>
+            </header>
+            <div class="section-button-block">
+                <div class="section-button section-button-main">Хочу прийняти участь!</div>
+                <div class="section-button section-button-main">Хочу навчати!</div>
+            </div>
+        </div>
     </section>
 
 </main>
