@@ -120,6 +120,7 @@ header li:hover{
     color:#3a87e3;
     border:2px solid #3a87e3;
     cursor: pointer;
+    transition: background .3s ease-in-out;
 }
 .section-button-block{
     display:flex;
@@ -140,6 +141,7 @@ header li:hover{
     -moz-box-shadow: 3px 3px 6px 1px rgba(0,0,0,0.35);
     box-shadow: 3px 3px 6px 1px rgba(0,0,0,0.35);
     margin: 0 auto 35px auto;
+    transition: background .3s ease-in-out;
 }
 .section-light{
     background-color: rgba(17, 113, 228, 0.18);
