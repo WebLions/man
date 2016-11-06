@@ -15,26 +15,30 @@ class Main extends CI_Controller {
 
         $this->data['status_list'] = $this->Status_model->getStatusList();
 
-//        $this->load->view('header');
-//        $this->load->view('main/main', $this->data);
-//        $this->load->view('footer');
+        $this->load->view('header');
+        $this->load->view('main/main', $this->data);
+        $this->load->view('footer');
     }
 
     public function about(){
+
         /*
          * About MAN page
          * url "/about"
          * @array $data['status_list'] -> view
          * @array $data['competitive_list'] -> view
          */
+
         $this->load->model('Competition_model');
         $this->load->model('Status_model');
 
         $this->data['status_list'] = $this->Status_model->getStatusList();
         $this->data['competitive_list'] = $this->Competition_model->getCompetitionList();
+        /*debug($this->data['competitive_list']);*/
 
         $this->load->view('header');
         $this->load->view('about/about', $this->data);
         $this->load->view('footer');
+
     }
 }

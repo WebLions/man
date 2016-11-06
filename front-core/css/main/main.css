@@ -120,6 +120,12 @@ header li:hover{
     color:#3a87e3;
     border:2px solid #3a87e3;
     cursor: pointer;
+    transition: background .3s ease-in-out;
+}
+.section-button-block{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
 }
 .section-button-main{
     background-color: #3a87e3;
@@ -135,6 +141,7 @@ header li:hover{
     -moz-box-shadow: 3px 3px 6px 1px rgba(0,0,0,0.35);
     box-shadow: 3px 3px 6px 1px rgba(0,0,0,0.35);
     margin: 0 auto 35px auto;
+    transition: background .3s ease-in-out;
 }
 .section-light{
     background-color: rgba(17, 113, 228, 0.18);
@@ -157,6 +164,26 @@ header li:hover{
     font-family: Arial;
     font-size: 19px;
     font-weight: 500;
+}
+.props-item-line article{
+    max-height: 0;
+    transition: max-height .5s ease-in-out;
+    overflow: hidden;
+}
+.props-item-line article p{
+    margin-left: 10%;
+    font-family: Arial;
+}
+.props-item-line header:hover{
+    cursor:pointer;
+}
+.props-item-line.active article{
+    max-height: 200px;
+    transition: max-height .5s ease-in-out;
+}
+.props-item-line.active header i img{
+    transition: all .5s ease-in-out;
+    transform: rotate(-90deg);
 }
 .picture-block:hover figure{
     transform: scale(1.1);
@@ -196,6 +223,7 @@ footer .container {
     font-size:16px;
     font-family: Arial;
     color:#fff;
+    margin-bottom: 15px;
 }
 /*--------------------ABOUT-PAGE---------------*/
 .picture-section{
@@ -220,9 +248,20 @@ footer .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 3%;
 }
 .props-content{
-    width: 35%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    vertical-align: top;
+}
+.props-content h2{
+    margin:7% 0;
+    font-family: Arial;
+    font-size:28px;
+    line-height:42px;
+    font-weight: 100;
 }
 .props-item .picture-block{
     width:20%
@@ -235,14 +274,14 @@ footer .container {
     font-family: arial;
     font-size: 14px;
 }
-.props-content header:after{
-    content: url("/front-core/images/arrow.png");
+.props-content header i img{
     width:16px;
     height:16px;
     transform: rotate(90deg);
     position: absolute;
     top: 4px;
     right: 8px;
+    transition: all .5s ease-in-out;
 }
 /*--------------------BX-MODIFY---------------*/
 .main-slider .bx-wrapper .bx-pager,
