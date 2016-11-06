@@ -1,18 +1,273 @@
-*,html,body{
+*{
+    margin: 0;
     padding: 0;
-    margin:0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
 }
 .wrapper{
     width:100%;
     height:100%;
 }
-header{
+.wrapper>header{
     width:100%;
+    position:relative;
 }
-.header-blue{
-    background-color: #318dff;
+.wrapper>header{
+    -webkit-box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.75);
+    box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.75);
+    z-index: 999;
 }
-.container{
-    max-width:1100px;
+.section-blue{
+    background-color: #3a87e3;
+}
+.container {
+    max-width: 1100px;
+    height:100%;
     margin: 0 auto;
 }
+header .container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.logo img{
+    width: 35%;
+    height: 35%;
+    margin: 4% 0;
+}
+.logo{
+    position: relative;
+    text-align: center;
+    height: 100%;
+}
+.logo a{
+    text-decoration: none;
+    display: flex;
+    height: 100%;
+}
+.logo-title{
+    color: #fff;
+    text-transform: uppercase;
+    margin: 11% 0 1% 0;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+}
+.header-menu ul{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.header-menu ul li{
+    display: inline-block;
+    list-style-type: none;
+    color:#fff;
+}
+.main-font{
+    font-weight: 600;
+    font-size: 22px;
+    font-family: Arial;
+    letter-spacing: 0.02em;
+}
+.main-font li{
+    padding: 15px 25px 15px 25px;
+}
+header li:hover{
+    cursor:pointer;
+}
+.header-underline{
+    background-color: #fff;
+    top: 65px;
+    height:3px;
+    position:absolute;
+    transition: all .35s ease-in-out;
+}
+.main-slider{
+    -webkit-box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.75);
+    box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.75);
+}
+#propsSlider section{
+    position: relative;
+}
+#propsSlider header{
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 0.04em;
+    font-size: 48px;
+    font-family: Arial;
+    font-weight: 600;
+    text-shadow: 0px -1px 12px rgba(0, 0, 0, .7);
+}
+.section-title{
+    width:100%;
+    text-align: center;
+    padding: 35px 0px;
+}
+.section-button{
+    width:22%;
+    margin:0 auto;
+}
+.section-button-main:hover{
+    background-color: #fff;
+    color:#3a87e3;
+    border:2px solid #3a87e3;
+    cursor: pointer;
+}
+.section-button-main{
+    background-color: #3a87e3;
+    border:2px solid #3a87e3;
+    padding:15px 25px;
+    font-family: Arial;
+    text-align: center;
+    color:#fff;
+    font-weight: 500;
+    font-size:22px;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 6px 1px rgba(0,0,0,0.35);
+    -moz-box-shadow: 3px 3px 6px 1px rgba(0,0,0,0.35);
+    box-shadow: 3px 3px 6px 1px rgba(0,0,0,0.35);
+    margin: 0 auto 35px auto;
+}
+.section-light{
+    background-color: rgba(17, 113, 228, 0.18);
+    -webkit-box-shadow: -2px 0px 8px 5px rgba(0,0,0,0.37);
+    -moz-box-shadow: -2px 0px 8px 5px rgba(0,0,0,0.37);
+    box-shadow: -2px 0px 8px 5px rgba(0,0,0,0.17);
+}
+.picture-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 35px;
+}
+.picture-block{
+    width: 25%;
+    text-align: center;
+}
+.picture-block h2{
+    margin-top: 20px;
+    font-family: Arial;
+    font-size: 19px;
+    font-weight: 500;
+}
+.picture-block:hover figure{
+    transform: scale(1.1);
+    transition: width .5s ease-in-out;
+    cursor:pointer;
+}
+.picture-block figure{
+    transition: width .5s ease-in-out;
+    width: 164px;
+    height: 164px;
+    border: 2px solid rgba(58, 135, 227, 0.5);
+    border-radius: 100px;
+    box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.35);
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.picture-block figure img{
+    width:100%;
+}
+footer{
+    width:100%;
+    position:relative;
+}
+footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.wrapper>footer{
+    -webkit-box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.75);
+    box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.75);
+    z-index: 999;
+}
+.copyright{
+    font-size:16px;
+    font-family: Arial;
+    color:#fff;
+}
+/*--------------------ABOUT-PAGE---------------*/
+.picture-section{
+    -webkit-box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.45);
+    -moz-box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.45);
+    box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.45);
+}
+.picture-section img{
+    width:100%;
+    display: block;
+}
+.props-section{
+
+}
+.props-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.props-item{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.props-content{
+    width: 35%;
+}
+.props-item .picture-block{
+    width:20%
+}
+.props-content header{
+    position: relative;
+    background-color: rgba(58, 135, 227, 0.75);
+    padding: 8px 20px;
+    color: #fff;
+    font-family: arial;
+    font-size: 14px;
+}
+.props-content header:after{
+    content: url("/front-core/images/arrow.png");
+    width:16px;
+    height:16px;
+    transform: rotate(90deg);
+    position: absolute;
+    top: 4px;
+    right: 8px;
+}
+/*--------------------BX-MODIFY---------------*/
+.main-slider .bx-wrapper .bx-pager,
+.main-slider .bx-wrapper .bx-controls-auto {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+.main-slider .bx-wrapper .bx-pager.bx-default-pager a:hover,
+.main-slider .bx-wrapper .bx-pager.bx-default-pager a.active {
+    background: #3a87e3;
+}
+.main-slider .bx-wrapper .bx-pager.bx-default-pager a {
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 7px 3px rgba(0,0,0,0.75);
+}
+.main-slider .bx-wrapper {
+    margin: 0;
+}
+.main-slider .bx-wrapper .bx-viewport {
+    max-height: 500px !important;
+}
+.main-slider .bx-wrapper img {
+    width: 100%;
+    margin-top: -8%
+}
+
+

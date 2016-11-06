@@ -84,8 +84,8 @@ class Main extends CI_Controller {
         $this->data['competitives'] = $this->competitives;
 
 
-//        $this->load->view('layouts/header');
-//        $this->load->view('about/about', $this->data);
-//        $this->load->view('layouts/footer');
+        $this->load->view('header');
+        $this->load->view('about/about', $this->data);
+        $this->load->view('footer');
     }
 }
