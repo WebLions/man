@@ -61,9 +61,8 @@
             </header>
             <div class="section-button-block">
                 <div class="section-button section-button-main">Хочу прийняти участь!</div>
-                <div class="section-button section-button-main">Хочу навчати!</div>
+                <!-- <div class="section-button section-button-main">Хочу навчати!</div> -->
             </div>
         </div>
     </section>
-
 </main>
