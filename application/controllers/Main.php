@@ -41,4 +41,9 @@ class Main extends CI_Controller {
         $this->load->view('footer');
 
     }
+    public function contacts(){
+        $this->load->view('header');
+        $this->load->view('contacts/contacts');
+        $this->load->view('footer');
+    }
 }

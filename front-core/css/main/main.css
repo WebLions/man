@@ -127,6 +127,10 @@ header li:hover{
     flex-wrap:wrap;
     justify-content: space-around;
 }
+.map{
+    margin:5% auto;
+    text-align: center;
+}
 .section-button-main{
     background-color: #3a87e3;
     border:2px solid #3a87e3;
