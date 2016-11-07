@@ -34,7 +34,7 @@
                    <a href="/about">
                         <li>Діяльність</li>
                    </a>
-                   <a href="/contact">
+                   <a href="/contacts">
                         <li>Зв'яжіться з нами</li>
                    </a>
                </ul>
