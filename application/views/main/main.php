@@ -2,21 +2,27 @@
     <section class="main-slider">
         <div id="propsSlider">
             <section>
-                <img src="/front-core/images/slider/slide-1.jpg">
+                <div class="slide-picture">
+                     <img src="/front-core/images/slider/slide-1.jpg">
+                </div>
                 <header>
                     Наука. Технології. </br>Інженерія. Математика.Творчість.
                 </header>
                 <p></p>
             </section>
             <section>
-                <img src="/front-core/images/slider/slide-2.jpg">
+                <div class="slide-picture">
+                    <img src="/front-core/images/slider/slide-2.jpg">
+                </div>
                 <header>
                     Наука. Технології. </br>Інженерія. Математика.Творчість.
                 </header>
                 <p></p>
             </section>
             <section>
-                <img src="/front-core/images/slider/slide-3.jpg">
+                <div class="slide-picture">
+                    <img src="/front-core/images/slider/slide-3.jpg">
+                </div>
                 <header>
                     Наука. Технології. </br>Інженерія. Математика.Творчість.
                 </header>

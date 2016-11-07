@@ -8,6 +8,7 @@
     <meta name="description" content="Страница содержит информацию о деятельности МАН в Одессе">
 
     <link href="/front-core/images/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <title>Мала академія наук Одесса</title>
 

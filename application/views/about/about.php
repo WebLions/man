@@ -23,7 +23,9 @@
                             </header>
                             <article>
                             <?php foreach($competitiveArray as $competitiveItem):?>
-                                    <p><?php if (is_array($competitiveItem))echo $competitiveItem['competition'] ?></p>
+                                <?php if (is_array($competitiveItem)){?>
+                                    <p><?php echo $competitiveItem['competition'] ?></p>
+                                <?php } ?>
                             <? endforeach;?>
                             </article>
                         </div>
