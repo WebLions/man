@@ -34,7 +34,6 @@ class Main extends CI_Controller {
 
         $this->data['status_list'] = $this->Status_model->getStatusList();
         $this->data['competitive_list'] = $this->Competition_model->getCompetitionList();
-        /*debug($this->data['competitive_list']);*/
 
         $this->load->view('header');
         $this->load->view('about/about', $this->data);
