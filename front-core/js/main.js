@@ -8,4 +8,18 @@ $(document).ready(function(){
     $('.props-item-line').on('click','header', function(){
         $(this).parent().toggleClass('active');
     })
+    $('.sign-in').click(function(){
+        $('.sign-in-modal-overlay').toggleClass('show');
+    })
+    $('.add-button').click(function(){
+        $('.admin-modal-overlay').toggleClass('show');
+    })
+    $('.close')
+        .click(function(){
+            $('.sign-in-modal-overlay').toggleClass('show');
+        })
+        .click(function () {
+            $('.admin-modal-overlay').toggleClass('show');
+        });
+
 })

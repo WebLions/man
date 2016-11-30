@@ -1,0 +1,65 @@
+html,
+body{
+    padding: 0;
+    margin: 0;
+}
+.login-form-overlay{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("/front-core/images/logo.png");
+    background-size: 10%;
+    background-position: 50% 20%;
+    background-repeat: no-repeat;
+}
+.login-form{
+    width: 20vw;
+    height: 29vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.login-title{
+    display: flex;
+    justify-content: center;
+    color: #3a87e3;
+    font-size: 22px;
+    border: 1px solid #3a87e3;
+    background-color: transparent;
+    padding: 10px;
+    font-weight: bold;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+.login-form form{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #3a87e3;
+    border-bottom: 0;
+    border-top: 0;
+}
+.login-form form input{
+    margin: 0.5em 0;
+    width: 100%;
+    padding: 0.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: #fff;
+    border: 1px solid #3a87e3;
+}
+.login-form form input[type=submit]{
+
+}
+.login:hover{
+    cursor:pointer;
+}

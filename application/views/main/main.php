@@ -35,7 +35,7 @@
             <header class="section-title">
                 <h2 class="main-font">Подайте заявку прямо зараз!</h2>
             </header>
-            <div class="section-button section-button-main">Хочу прийняти участь</div>
+            <div class="section-button section-button-main sign-in">Хочу прийняти участь</div>
         </div>
     </section>
     <section class="section-light">
@@ -63,7 +63,9 @@
                     <h2>Семінари та майстер класи</h2>
                 </div>
             </section>
-            <div class="section-button section-button-main">Детальніше</div>
+            <a href="/about">
+                <div class="section-button section-button-main">Детальніше</div>
+            </a>
         </div>
     </section>
     <section>

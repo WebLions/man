@@ -1,10 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+
 class Admin extends CI_Controller {
 
     public function __construct()
     {
+        parent::__construct();
         @session_start();
     }
 
@@ -19,9 +22,9 @@ class Admin extends CI_Controller {
         $this->load->model('Request_model');
         $this->data['request_list'] = $this->Request_model->getRequestList();
 
-        $this->load->view('layouts/admin/header');
-        $this->load->view('admin/admin', $this->data);
-        $this->load->view('layouts/admin/footer');
+        $this->load->view('admin/header');
+        $this->load->view('admin/main', $this->data);
+        $this->load->view('admin/footer');
     }
 
     public function post_add_request()
@@ -37,10 +40,7 @@ class Admin extends CI_Controller {
          * Login admin page
          * Url "/admin/login"
          */
-
-        $this->load->view('layouts/admin/header');
         $this->load->view('admin/login');
-        $this->load->view('layouts/admin/footer');
     }
 
     public function post_login()
@@ -82,9 +82,10 @@ class Admin extends CI_Controller {
         $this->load->model('Status_model');
         $this->data['status_list'] = $this->Status_model->getStatusList();
 
-        $this->load->view('layouts/admin/header');
+        $this->load->view('admin/header');
         $this->load->view('admin/statuses', $this->data);
-        $this->load->view('layouts/admin/footer');
+        $this->load->view('modals/admin-status');
+        $this->load->view('admin/footer');
 
     }
 
