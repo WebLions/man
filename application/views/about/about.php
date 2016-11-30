@@ -37,7 +37,7 @@
                     <figure>
                         <img src="/front-core/images/stem.jpg" alt="STEM">
                     </figure>
-                    <h2>Конкурси МАН</h2>
+                    <h2>STEM</h2>
                 </div>
                 <section class="props-content">
                     <h2>Робототехнікa<br>Open Data</h2>
@@ -48,7 +48,7 @@
                     <figure>
                         <img src="/front-core/images/semi.jpg" alt="Семінари ">
                     </figure>
-                    <h2>Конкурси МАН</h2>
+                    <h2>Семінари та майстер класи</h2>
                 </div>
                 <section class="props-content">
                     <h2>GameHub(навчання створення ігр)<br>Інше</h2>
@@ -62,7 +62,7 @@
                 <h2 class="main-font">Подайте заявку прямо зараз!</h2>
             </header>
             <div class="section-button-block">
-                <div class="section-button section-button-main">Хочу прийняти участь!</div>
+                <div class="section-button section-button-main sign-in">Хочу прийняти участь!</div>
                 <!-- <div class="section-button section-button-main">Хочу навчати!</div> -->
             </div>
         </div>

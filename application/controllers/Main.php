@@ -18,6 +18,9 @@ class Main extends CI_Controller {
         $this->load->view('header');
         $this->load->view('main/main', $this->data);
         $this->load->view('footer');
+
+        $this->load->view('modals/modal');
+
     }
 
     public function about(){
@@ -38,11 +41,14 @@ class Main extends CI_Controller {
         $this->load->view('header');
         $this->load->view('about/about', $this->data);
         $this->load->view('footer');
+        $this->load->view('modals/modal');
 
     }
     public function contacts(){
         $this->load->view('header');
         $this->load->view('contacts/contacts');
         $this->load->view('footer');
+        $this->load->view('modals/modal');
     }
+
 }

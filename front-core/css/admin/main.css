@@ -1,0 +1,126 @@
+html,body{
+    padding: 0;
+    margin: 0;
+}
+.main>section{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+}
+.delete-icon {
+    position: absolute;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    top: 8px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+.delete-icon::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.delete-icon::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.delete-icon::before,
+.delete-icon::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    margin-top: -6px;
+    width: 100%;
+    top: 50%;
+    right: 0;
+    background: #000;
+    transition: all .2s ease-in-out;
+}
+.delete-icon:hover::before,
+.delete-icon:hover::after {
+    background: red;
+    transition: all .2s ease-in-out;
+}
+.admin-table{
+    margin-top: 10em;
+    border-collapse: collapse;
+    border: 1px solid #3a87e3;
+}
+.admin-table tr:first-child th{
+    border: 1px solid #3a87e3;
+    padding: 0.5em 2em;
+}
+.admin-table td{
+    position: relative;
+    text-align: center;
+    padding:0.5em 2em;
+    border:1px solid #3a87e3;
+}
+.admin-table a{
+
+}
+.wrapper{
+    width:100%;
+    height:100vh;
+    display: flex;
+}
+.side-bar{
+    width: 15vw;
+    height:100%;
+    background-color: #3a87e3;
+    background-image: url("/front-core/images/logo.png");
+    background-size: 55%;
+    background-position: 50% 5%;
+    background-repeat: no-repeat;
+}
+.main{
+    width: 85vw;
+    height:100%;
+}
+.side-bar ul{
+    list-style-type: none;
+    padding:0;
+    margin: 0;
+    margin-top: 75vh;
+}
+.side-bar ul a{
+    color:#fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+.side-bar ul li{
+    padding: 0.7em 2em;
+    margin: 0 1em;
+}
+.side-bar ul li:hover{
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+    cursor: pointer;
+
+}
+.add-button{
+    padding: 0.5em 2em;
+    background-color: #3a87e3;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 2em;
+    transition: all .3s ease-in-out;
+}
+.add-button:hover{
+    background-color: #fff;
+    color:#3a87e3;
+    outline:1px solid #3a87e3;
+    transition: all .3s ease-in-out;
+    cursor:pointer;
+}
