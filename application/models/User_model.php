@@ -17,8 +17,12 @@ class User_model extends CI_Model
         else return false;
     }
 
-    public function check_auth()
+    public function checkAuth()
     {
-
+        if(isset($_SESSION['user'])){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
