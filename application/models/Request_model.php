@@ -14,6 +14,9 @@ class Request_model extends CI_Model
 
     public function addRequest($data)
     {
+        return $this->db->insert($this->tableName, $data);
 
     }
+
+
 }
