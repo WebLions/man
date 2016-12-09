@@ -66,6 +66,7 @@ $route['send_ticket'] = 'Mainpage/sendTicket';
 $route['about'] = 'Mainpage/about';
 $route['contacts'] = 'Mainpage/contacts';
 
+
 /*Admin pages*/
 
 /*Account pages*/

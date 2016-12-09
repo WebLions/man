@@ -231,8 +231,8 @@ form input[type="submit"]:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 0.9em;
-    height: 0.9em;
+    width: 0.8em;
+    height: 0.8em;
     top: 12px;
     right: 10px;
 }
@@ -413,4 +413,36 @@ form input[type="submit"]:hover{
     padding: 1.5em 0;
     font-family: HelveticaNeueRoman;
     font-size:0.8em;
+}
+.success-overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 9999;
+}
+.success-overlay.show{
+    display: block;
+}
+.success-form{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 25vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #7a95ab;
+    background-color: #fff;
+}
+.success-form span{
+    color: #69859d;
+    font-family: HelveticaNeueRoman;
 }

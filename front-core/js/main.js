@@ -9,9 +9,10 @@ $(document).ready(function(){
     $('.props-item-line').on('click','header', function(){
         $(this).parent().toggleClass('active');
     })
-    $('.close-icon')
+    $('.close')
         .click(function(){
             $('.form-overlay').removeClass('show');
+            $('.success-overlay').removeClass('show');
         });
     $('.sign-up')
         .click(function(){
@@ -45,5 +46,21 @@ $(document).ready(function(){
                 .prop('name', 'login')
                 .prop('placeholder', 'Введіть Ваш логін');
         }
-    })
+    });
+
+    $('.sign-up-event').click(function () {
+        var getId = $(this).attr('data-event-id');
+        var link = '/send_ticket';
+        $.ajax({
+            type: "POST",
+            url: link,
+            data: getId,
+            success: function () {
+                $('.success-overlay').addClass('show');
+                $('#successText').text('Ви успішно зареєструвалися');
+            }
+        });
+    });
+
+
 });

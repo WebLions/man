@@ -29,6 +29,7 @@ class Mainpage extends CI_Controller
         $this->load->view('main/main');
         $this->load->view('modals/signIn');
         $this->load->view('modals/signUp');
+        $this->load->view('modals/success');
         $this->load->view('footer');
 
 //        $this->load->view('modals/modal');
@@ -44,6 +45,7 @@ class Mainpage extends CI_Controller
         $this->load->view('news/new', $data);
         $this->load->view('modals/signIn');
         $this->load->view('modals/signUp');
+        $this->load->view('modals/success');
         $this->load->view('footer');
 
     }
@@ -51,6 +53,7 @@ class Mainpage extends CI_Controller
     public function sendTicket()
     {
         if($this->User_model->checkAuth()){
+            echo 'asdasdsad';
             $this->sendRequestData();
         }else{
             $this->showRegForm();

@@ -21,7 +21,7 @@
                     <li>Залишилось місць:  <?=$event['quantity']?></li>
                     <li>Дата та час проводження: <?=$event['date_of_start']?></li>
                 </ul>
-                <div class="sign-up-event">Записатись</div>
+                <div class="sign-up-event" data-event-id="<?=$event['id']?>">Записатись</div>
             </footer>
         </article>
     </div>
