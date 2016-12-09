@@ -13,7 +13,6 @@
         <title>Мала академія наук Одесса</title>
 
         <link href="/front-core/css/main/main.css" rel="stylesheet">
-        <link href="/front-core/css/modals/modals.css" rel="stylesheet">
         <link href="/front-core/css/jquery.bxslider.css" rel="stylesheet">
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -22,25 +21,17 @@
 
     </head>
     <body>
-    <div class="wrapper">
-    <header class="section-blue">
-       <div class="container">
-           <figure class="logo">
-               <a href="/">
-                   <img src="/front-core/images/logo.png" />
-                   <div class="logo-title">МАН ІТ Одеса</div>
-               </a>
-           </figure>
-           <nav class="header-menu main-font">
-               <ul>
-                   <a href="/about">
-                        <li>Діяльність</li>
-                   </a>
-                   <a href="/contacts">
-                        <li>Зв'яжіться з нами</li>
-                   </a>
-               </ul>
-               <div class="header-underline"></div>
-           </nav>
-       </div>
-    </header>
+        <main>
+            <aside>
+                <nav>
+                    <header>МАН Одесса</header>
+                    <ul>
+                        <li>Головна</li>
+                        <li>Детальніше про МАН</li>
+                        <li>Контакти</li>
+                        <li class="spliter"></li>
+                        <li>Увійти</li>
+                        <li class="sign-up">Зареєструватися</li>
+                    </ul>
+                </nav>
+            </aside>
