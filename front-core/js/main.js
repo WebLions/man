@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
     $('header li').hover(function(){
         var margin = $(this).offset();
         var objWidth = $(this).outerWidth();
@@ -14,12 +15,13 @@ $(document).ready(function(){
     $('.add-button').click(function(){
         $('.admin-modal-overlay').toggleClass('show');
     })
-    $('.close')
+    $('.close-icon')
         .click(function(){
-            $('.sign-in-modal-overlay').toggleClass('show');
-        })
-        .click(function () {
-            $('.admin-modal-overlay').toggleClass('show');
+            $('.form-overlay').toggleClass('show');
+        });
+    $('.sign-up')
+        .click(function(){
+            $('.form-overlay').toggleClass('show');
         });
 
 })
