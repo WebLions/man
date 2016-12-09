@@ -1,175 +1,54 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
-
-class Admin extends CI_Controller {
-
+class Admin extends CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
-        @session_start();
     }
 
     public function index()
     {
-        /*
-         * Main admin page
-         * Url "/admin"
-         * List of request from users
-         */
-
-        $this->load->model('Request_model');
-        $this->data['request_list'] = $this->Request_model->getRequestList();
-
-        $this->load->view('admin/header');
-        $this->load->view('admin/main', $this->data);
-        $this->load->view('admin/footer');
+        $this->getRequestList();
     }
 
-    public function post_add_request()
+    public function getRequestList()
     {
-        /*
-         * Get user data for add request
-         */
+
     }
 
-    public function login()
+    public function approve_request()
     {
-        /*
-         * Login admin page
-         * Url "/admin/login"
-         */
-        $this->load->view('admin/login');
+
     }
 
-    public function post_login()
+    public function decline_request()
     {
-        $post = $this->input->post();
-        if (empty($post)) {
-            return false;
-        }
-        $this->load->model('User_model');
-        if ($this->User_model->login($post['login'], $post['password']) == true) {
-            $_SESSION['admin'] = true;
-            redirect('/admin', 'refresh');
-        } else {
-            echo 'Ошибка авторизации';
+
+    }
+
+    public function create_event()
+    {
+        if(empty($_POST)){
+            $this->viewAdminForm();
+        }else{
+            $this->getAdminData();
         }
     }
 
-    public function logout()
+    public function edit_event()
     {
-        /*
-         * Logout from admin page
-         * Url "/admin/logout"
-         */
-        if( isset($_SESSION['admin']) && $_SESSION['admin'] == true)
-        {
-            $_SESSION['admin'] = false;
-            redirect('/', 'refresh');
+        if(empty($_POST)){
+            $this->viewAdminForm();
+        }else{
+            $this->getAdminData();
         }
     }
 
-    public function statuses()
+    public function delete_event()
     {
-        /*
-         * Statuses admin page
-         * Url "/admin/statuses"
-         * List of statuses like teacher, student etc
-         */
-
-        $this->load->model('Status_model');
-        $this->data['status_list'] = $this->Status_model->getStatusList();
-
-        $this->load->view('admin/header');
-        $this->load->view('admin/statuses', $this->data);
-        $this->load->view('modals/admin-status');
-        $this->load->view('admin/footer');
 
     }
-
-    public function add_status()
-    {
-        /*
-         * Add status page
-         * Url "/admin/add_status"
-         */
-    }
-
-    public function post_add_status()
-    {
-        /*
-         * Get post data for add status
-         * Url "/admin/post_add_status"
-         */
-
-    }
-
-    public function edit_status()
-    {
-        /*
-         * Edit status page
-         * Url "/admin/edit_page"
-         */
-    }
-
-    public function post_edit_status()
-    {
-        /*
-         * Get post data for edit status
-         * Url "/admin/post_edit_status"
-         */
-    }
-
-    public function delete_status()
-    {
-        /*
-         * Delete status page
-         * Url "/admin/delete_page"
-         */
-    }
-
-    public function competitions()
-    {
-        /*
-         * Competition list
-         * Url "/admin/competitions"
-         */
-    }
-
-    public function add_competitions()
-    {
-        /*
-         * Add competition view
-         * Url "/admin/add_competitions"
-         */
-    }
-
-    public function post_add_competitions()
-    {
-        /*
-         * Get post data for add competitions
-         * Url "/admin/post_add_competitions"
-         */
-    }
-
-    public function edit_competitions()
-    {
-        /*
-         * Edit competitions view
-         * Url "/admin/edit_competitions"
-         */
-    }
-
-    public function post_edit_competitions()
-    {
-        /*
-         * Get post data for edit competitions
-         * Url "/admin/post_edit_competitions"
-         */
-    }
-
-
 
 }

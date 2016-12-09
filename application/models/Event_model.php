@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Request_model extends CI_Model
+class Event_model extends CI_Model
 {
-    public function getRequestList()
+    public function getEventList()
     {
-        $result = $this->db->get('requests');
+        $result = $this->db->get('events');
         if(empty($result)){
             return false;
         }
@@ -13,8 +13,5 @@ class Request_model extends CI_Model
         return $result;
     }
 
-    public function addRequest($data)
-    {
 
-    }
 }
