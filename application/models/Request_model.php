@@ -9,14 +9,24 @@ class Request_model extends CI_Model
     {
         $result = $this->db->get($this->tableName);
         $result = $result->result_array();
-        return $result;;
+        return $result;
     }
 
     public function addRequest($data)
     {
         return $this->db->insert($this->tableName, $data);
-
     }
 
+    public function approveRequest($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->update($this->tableName, array('condition_id' => 2));
+    }
+
+    public function declineRequest($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->update($this->tableName, array('condition_id' => 3));
+    }
 
 }

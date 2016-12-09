@@ -36,25 +36,32 @@ class Mainpage extends CI_Controller
     {
         $event = $this->Event_model->getEvent($id);
         $event['category'] = $this->Category_model->getCategory($event['category_id']);
-//        $data = array("events"=>$event);
+        $data = array("events"=>$event);
 
-//        $this->load->view('header');
-//        $this->load->view('main/main', $data);
-//        $this->load->view('footer');
+        $this->load->view('header');
+        $this->load->view('main/main', $data);
+        $this->load->view('footer');
 
     }
 
     public function sendTicket()
     {
         if($this->User_model->checkAuth()){
-            $post = $this->input->post(NULL, TRUE);
-            debug($post);
-            $post['user_id'] = $_SESSION['user']['id'];
-            $this->Request_model->addRequest($post);
+            $this->sendRequestData();
         }else{
-
+            $this->showRegForm();
         }
+    }
 
+    public function sendRequestData()
+    {
+        $post = $this->input->post(NULL, TRUE);
+        $post['user_id'] = $_SESSION['user']['id'];
+        $this->Request_model->addRequest($post);
+    }
+
+    public function showRegForm()
+    {
 
     }
 

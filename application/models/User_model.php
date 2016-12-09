@@ -3,18 +3,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model
 {
-    public function login($login, $password)
+    private $admin_login = 'admin';
+    private $admin_password = '$2y$10$NU7cso/T4vaTjhmbaAyj8OwkO2Qnct9E2hpm2Zbp4cP8vcLMpw0Ya';
+
+    private $tableName = 'users';
+
+    public function login($email, $password)
     {
-        if(!isset($login, $password)){
+        if(!isset($email, $password)){
             return false;
         }
-        $this->db->where('login', $login);
-        $this->db->where('password', $password);
-        $user = $this->db->get('users');
+        $this->db->where('email', $email);
+        $user = $this->db->get($this->tableName);
         if ($user->result_id->num_rows){
-            return true;
+            if(password_verify($password, $user['password'])) {
+                $_SESSION['user']['id'] = $user['id'];
+                return true;
+            }
+        }else{
+            return false;
         }
-        else return false;
+    }
+
+    public function loginAdmin($login, $password)
+    {
+        if(!isset($email, $password)){
+            return false;
+        }
+        if(password_verify($password, $this->admin_password) AND $login === $this->admin_login) {
+            $_SESSION['admin'] = true;
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        return true;
     }
 
     public function checkAuth()
@@ -24,5 +51,22 @@ class User_model extends CI_Model
         }else{
             return false;
         }
+    }
+
+    public function addUser($data)
+    {
+        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+        $this->db->insert($this->tableName, $data);
+        $insert_id = $this->db->insert_id();
+        return $insert_id;
+
+    }
+
+    public function getUser($id)
+    {
+        $this->db->where('id', $id);
+        $result = $this->db->get($this->tableName);
+        $result = $result->row_array();
+        return $result;
     }
 }
