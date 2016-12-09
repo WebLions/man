@@ -60,7 +60,12 @@ $route['translate_uri_dashes'] = FALSE;
 | Routes of site
 |
 */
+/*Main pages*/
 $route['event/(:num)'] = 'Mainpage/getEvent/$1';
 $route['send_ticket'] = 'Mainpage/sendTicket';
 $route['about'] = 'Mainpage/about';
 $route['contacts'] = 'Mainpage/contacts';
+
+/*Admin pages*/
+
+/*Account pages*/
