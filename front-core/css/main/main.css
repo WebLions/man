@@ -36,6 +36,14 @@ main>aside ul li{
     font-family: HelveticaNeueRoman;
     font-size: 1em;
 }
+main>aside ul li a{
+    text-decoration: none;
+    color:#222222;
+}
+main>aside ul li.active a{
+    color:#69859d;
+}
+main>aside ul li:hover a,
 main>aside ul li:hover{
     cursor:pointer;
     color:#69859d;
@@ -46,6 +54,7 @@ main>section{
     padding: 3em 0 3em 1em;
     flex-direction: column;
     margin-left: 20vw;
+    min-height: calc(100Vh - 6em);
 }
 main>section article{
     padding: 2em;
@@ -243,4 +252,105 @@ form input[type="submit"]:hover{
 .close-icon:hover::after{
     background: #3a87e3;
     cursor:pointer;
+}
+.picture-section{
+    -webkit-box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.45);
+    -moz-box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.45);
+    box-shadow: -2px 0px 8px 3px rgba(0,0,0,0.45);
+}
+.picture-section img{
+    width:100%;
+    display: block;
+}
+.page-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 900px;
+    background-color: #fff;
+    position:relative;
+    min-height: 81vh;
+}
+.props-item{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 3%;
+}
+.props-content{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    vertical-align: top;
+}
+.props-content h2{
+    margin:7% 0;
+    font-family: Arial;
+    font-size:28px;
+    line-height:42px;
+    font-weight: 100;
+}
+.props-item .picture-block{
+    width:20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.props-content header{
+    position: relative;
+    background-color: rgba(58, 135, 227, 0.75);
+    padding: 8px 20px;
+    color: #fff;
+    font-family: arial;
+    font-size: 14px;
+}
+.picture-block h2{
+    margin:1.5em 0;
+    text-align:center;
+}
+.props-content header i img{
+    width:16px;
+    height:16px;
+    transform: rotate(90deg);
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    transition: all .5s ease-in-out;
+}
+.picture-block:hover figure{
+    transform: scale(1.1);
+    transition: width .5s ease-in-out;
+    cursor:pointer;
+}
+.picture-block figure{
+    transition: width .5s ease-in-out;
+    width: 164px;
+    height: 164px;
+    border: 2px solid rgba(58, 135, 227, 0.5);
+    border-radius: 100px;
+    box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.35);
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.picture-block figure img{
+    width:100%;
+}
+.page-container iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    box-sizing: border-box;
+}
+.section-title{
+    display:flex;
+    justify-content:space-around;
+    padding: 1.5em 0;
+    font-family: HelveticaNeueRoman;
+    font-size:0.8em;
 }

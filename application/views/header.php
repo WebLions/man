@@ -26,9 +26,21 @@
                 <nav>
                     <header>МАН Одесса</header>
                     <ul>
-                        <li>Головна</li>
-                        <li>Детальніше про МАН</li>
-                        <li>Контакти</li>
+                        <li class="<?=($active=="home")? 'active' : ''?>">
+                            <a href="/">
+                                Головна
+                            </a>
+                        </li>
+                        <li class="<?=($active=="about")? 'active' : ''?>">
+                            <a href="/about">
+                                Детальніше про МАН
+                            </a>
+                        </li>
+                        <li class="<?=($active=="contacts")? 'active' : ''?>">
+                            <a href="/contacts">
+                                Контакти
+                            </a>
+                        </li>
                         <li class="spliter"></li>
                         <li>Увійти</li>
                         <li class="sign-up">Зареєструватися</li>
