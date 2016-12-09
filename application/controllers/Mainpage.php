@@ -27,6 +27,8 @@ class Mainpage extends CI_Controller
         $this->data['active'] = "home";
         $this->load->view('header', $this->data);
         $this->load->view('main/main');
+        $this->load->view('modals/signIn');
+        $this->load->view('modals/signUp');
         $this->load->view('footer');
 
 //        $this->load->view('modals/modal');
@@ -37,9 +39,11 @@ class Mainpage extends CI_Controller
         $event = $this->Event_model->getEvent($id);
         $event['category'] = $this->Category_model->getCategory($event['category_id']);
         $data = array("event"=>$event);
-
-        $this->load->view('header');
-        $this->load->view('main/main', $data);
+        $this->data['active'] = "home";
+        $this->load->view('header', $this->data);
+        $this->load->view('news/new', $data);
+        $this->load->view('modals/signIn');
+        $this->load->view('modals/signUp');
         $this->load->view('footer');
 
     }
@@ -71,6 +75,8 @@ class Mainpage extends CI_Controller
         $this->data['active'] = "about";
         $this->load->view('header', $this->data);
         $this->load->view('about/about');
+        $this->load->view('modals/signIn');
+        $this->load->view('modals/signUp');
         $this->load->view('footer');
     }
 
@@ -79,6 +85,8 @@ class Mainpage extends CI_Controller
         $this->data['active'] = "contacts";
         $this->load->view('header', $this->data);
         $this->load->view('contacts/contacts');
+        $this->load->view('modals/signIn');
+        $this->load->view('modals/signUp');
         $this->load->view('footer');
     }
 

@@ -33,7 +33,7 @@
                 <h2>STEM</h2>
             </div>
             <section class="props-content">
-                <h2>Робототехнікa<br>Open Data</h2>
+                <h2>Робототехнікa Open Data</h2>
             </section>
         </div>
         <div class="props-item">
@@ -44,7 +44,7 @@
                 <h2>Семінари та майстер класи</h2>
             </div>
             <section class="props-content">
-                <h2>GameHub(навчання створення ігр)<br>Інше</h2>
+                <h2>GameHub(навчання створення ігр) Інше</h2>
             </section>
         </div>
     </div>

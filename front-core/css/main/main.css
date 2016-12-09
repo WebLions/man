@@ -65,6 +65,13 @@ main>section article h2{
     font-size: 1.3em;
     margin-bottom: 1em;
 }
+main>section article h2 a{
+    text-decoration:none;
+    color:#222222;
+}
+main>section article h2:hover a{
+    text-decoration:underline;
+}
 main>section article p{
     font-family: Sitka;
     font-size: 0.9em;
@@ -90,7 +97,7 @@ main>section article footer{
     margin: 0.5em 0;
 }
 .news-item{
-    height: 50%;
+    min-height: 50%;
     width: 80%;
     max-width: 900px;
     margin-bottom: 1em;
@@ -114,6 +121,7 @@ main>section article footer{
     letter-spacing: 0.04em;
     user-select: none;
     transition: all .3s ease-in-out;
+    text-decoration: none;
 }
 .sign-up-event:hover{
     cursor:pointer;
@@ -143,9 +151,21 @@ main>section article footer{
     top: 0;
     bottom: 0;
     margin: auto;
-    width: 21vw;
+    width: 22vw;
     height: 60vh;
     background-color: #f4f4f4;
+}
+#signIn .form-container{height: 43vh;}
+.form-container form span{
+    text-align: center;
+    text-decoration: underline;
+    font-family: HelveticaNeueRoman;
+    font-size:0.9em;
+    margin:1em 0;
+}
+.form-container form span:hover{
+    cursor:pointer;
+    text-decoration: none;
 }
 .form-container header{
     display: flex;
@@ -161,7 +181,7 @@ main>section article footer{
 .form-container form{
     display: flex;
     flex-direction: column;
-    padding: 0em 2.5em 4em 2.5em;
+    padding: 0em 2em 4em 2em;
 }
 .form-container form input[type="text"]::-webkit-input-placeholder,
 .form-container form input[type="email"]::-webkit-input-placeholder,
@@ -181,21 +201,15 @@ main>section article footer{
 .form-container article select{
     line-height: 2em;
     color: #9b9b9b;
-    height: 2.4em;
+    height: 2.7em;
     max-width: 100%;
     width: 100%;
     margin-bottom: 1em;
-    padding-left: 10px;
+    padding-left: 15px;
     box-sizing: border-box;
     border: 1px solid #e2e2e2;
     outline: none;
-}
-.admin-modal-block  form input[type="submit"]{
-    background-color: #3a87e3;
-    color:#fff;
-}
-.sign-in-block form select{
-    height:2em;
+    letter-spacing: 0.04em;
 }
 form input[type="submit"]:hover{
     cursor:pointer;
@@ -267,7 +281,7 @@ form input[type="submit"]:hover{
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 900px;
+    max-width: 980px;
     background-color: #fff;
     position:relative;
     min-height: 81vh;
@@ -276,6 +290,7 @@ form input[type="submit"]:hover{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
     margin-bottom: 3%;
 }
 .props-content{
@@ -283,6 +298,7 @@ form input[type="submit"]:hover{
     display: flex;
     flex-direction: column;
     vertical-align: top;
+    padding: 2em 0;
 }
 .props-content h2{
     margin:7% 0;
@@ -337,6 +353,50 @@ form input[type="submit"]:hover{
 }
 .picture-block figure img{
     width:100%;
+}
+.props-item-line article{
+    max-height: 0;
+    transition: all .5s ease-in-out;
+    overflow: hidden;
+    border: 2px solid #3a87e3;
+    margin-bottom: 10px;
+    padding: 0;
+}
+.props-item-line article p{
+    font-family: Arial;
+    margin:10px 0 10px 10%;
+    position: relative;
+}
+.props-item-line article p:after{
+    content: '';
+    position: absolute;
+    width: 85%;
+    bottom: -7px;
+    left:0;
+    height:1px;
+    background-color: #3a87e3;
+}
+.props-item-line article p:last-child:after{
+    content: '';
+    position: absolute;
+    width:50%;
+    bottom:0;
+    left:0;
+    height:0px;
+    background-color: #3a87e3;
+
+}
+.props-item-line header:hover{
+    cursor:pointer;
+}
+.props-item-line.active article{
+    max-height: 320px;
+    transition: all .5s ease-in-out;
+    padding:20px 0;
+}
+.props-item-line.active header i img{
+    transition: all .5s ease-in-out;
+    transform: rotate(-90deg);
 }
 .page-container iframe{
     position:absolute;

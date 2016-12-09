@@ -84,7 +84,7 @@ class User extends CI_Controller
 
     public function viewAdminForm()
     {
-
+        $this->load->view('modals/signIn');
     }
 
     public function getAdminData()

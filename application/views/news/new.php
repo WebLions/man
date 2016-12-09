@@ -1,8 +1,7 @@
 <section>
-    <?php foreach ($events as $event){?>
-    <div class="news-item">
+    <div class="news-item full">
         <header>
-            <img src="<?=$event['img']?>">
+            <img src="<?=$event['img']?>" >
         </header>
         <article>
             <header>
@@ -13,7 +12,7 @@
                 </h2>
             </header>
             <p>
-                <?=$event['short_text']?>
+                <?=$event['full_text']?>
             </p>
             <footer>
                 <ul>
@@ -25,5 +24,4 @@
             </footer>
         </article>
     </div>
-    <?php } ?>
 </section>
