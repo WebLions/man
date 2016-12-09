@@ -28,7 +28,6 @@ class Admin extends CI_Controller
             $requestList[$k]['event'] = $this->Event_model->getEvent($request['event_id']);
             $requestList[$k]['event']['category'] = $this->Category_model->getCategory($requestList[$k]['event']['category_id']);
         }
-        debug($requestList);
     }
 
     public function approve_request()
@@ -46,24 +45,48 @@ class Admin extends CI_Controller
     public function create_event()
     {
         if(empty($_POST)){
-            $this->viewAdminForm();
+            $this->viewEventForm();
         }else{
-            $this->getAdminData();
+            $this->getEventData();
         }
+    }
+
+    public function viewEventForm()
+    {
+
+    }
+
+    public function getEventData()
+    {
+        $post = $this->input->post(NULL, TRUE);
+        $this->Event_model->addEvent($post);
     }
 
     public function edit_event()
     {
         if(empty($_POST)){
-            $this->viewAdminForm();
+            $this->viewEditEvent();
         }else{
-            $this->getAdminData();
+            $this->getEditEventData();
         }
+    }
+
+    public function viewEditEvent()
+    {
+        $id = $this->input->post('id', TRUE);
+        $event = $this->Event_model->getEvent($id);
+    }
+
+    public function getEditEventData()
+    {
+        $post = $this->input->post(NULL, TRUE);
+        $this->Event_model->editEvent($post);
     }
 
     public function delete_event()
     {
-
+        $id = $this->input->post('id', TRUE);
+        $this->Event_model->deleteEvent($id);
     }
 
 }
