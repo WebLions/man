@@ -12,6 +12,14 @@ class Request_model extends CI_Model
         return $result;
     }
 
+    public function getUserRequestList($id)
+    {
+        $this->db->where('user_id', $id);
+        $result = $this->db->get($this->tableName);
+        $result = $result->result_array();
+        return $result;
+    }
+
     public function addRequest($data)
     {
         return $this->db->insert($this->tableName, $data);
@@ -27,6 +35,12 @@ class Request_model extends CI_Model
     {
         $this->db->where('id', $id);
         return $this->db->update($this->tableName, array('condition_id' => 3));
+    }
+
+    public function cancelRequest($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->update($this->tableName, array('condition_id' => 4));
     }
 
 }
