@@ -1,0 +1,24 @@
+@font-face {
+    font-family: HelveticaNeueBold;
+    src: url("/front-core/fonts/HelveticaNeueCyr-Bold.otf");
+}
+@font-face {
+    font-family: HelveticaNeueItalic;
+    src: url("/front-core/fonts/HelveticaNeueCyr-Italic.otf");
+}
+@font-face {
+    font-family: HelveticaNeueLight;
+    src: url("/front-core/fonts/HelveticaNeueCyr-Light.otf");
+}
+@font-face {
+    font-family: HelveticaNeueRoman;
+    src: url("/front-core/fonts/HelveticaNeueCyr-Roman.otf");
+}
+@font-face {
+    font-family: Sitka;
+    src: url("/front-core/fonts/Sitka.ttc");
+}
+@font-face {
+    font-family: SitkaBanner;
+    src: url("/front-core/fonts/SitkaB.ttc");
+}
