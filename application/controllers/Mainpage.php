@@ -7,6 +7,7 @@ class Mainpage extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Event_model');
+        $this->load->model('Category_model');
         $this->load->model('Competition_model');
     }
 
@@ -29,7 +30,11 @@ class Mainpage extends CI_Controller
     public function getEvent($id)
     {
         $event = $this->Event_model->getEvent($id);
-        $data = array("events"=>$event);
+        $event['category'] = $this->Category_model->getCategory($event['category_id']);
+        debug($event);
+
+
+//        $data = array("events"=>$event);
 
 //        $this->load->view('header');
 //        $this->load->view('main/main', $data);

@@ -16,7 +16,7 @@ class Event_model extends CI_Model
     {
         $this->db->where('id', $id);
         $result = $this->db->get($this->tableName);
-        $result = $result->result_array();
+        $result = $result->row_array();
         return $result;
     }
 
