@@ -42,8 +42,24 @@
                             </a>
                         </li>
                         <li class="spliter"></li>
-                        <li>Увійти</li>
-                        <li class="sign-up">Зареєструватися</li>
+                        <?=(checkAuth())? '
+                            <li>
+                                <a href="/account">
+                                    Особистий кабінет
+                                </a>
+                            </li>' : ''
+                        ?>
+                        <?=(checkAuth()) ? '<li>
+                                    <a href="/user/logout">
+                                        Вийти
+                                    </a>
+                        </li>' : '<li class="sign-in">Увійти</li>'?>
+                        <?=(!checkAuth()) ? '
+                                     <li class="sign-up">
+                                        Зареєструватися
+                                     </li>
+                        </li>' : ''?>
+
                     </ul>
                 </nav>
             </aside>

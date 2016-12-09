@@ -15,11 +15,10 @@ class User_model extends CI_Model
         }
         $this->db->where('email', $email);
         $user = $this->db->get($this->tableName);
-        if ($user->result_id->num_rows){
-            if(password_verify($password, $user['password'])) {
+        $user = $user->row_array();
+        if(password_verify($password, $user['password'])) {
                 $_SESSION['user']['id'] = $user['id'];
                 return true;
-            }
         }else{
             return false;
         }
