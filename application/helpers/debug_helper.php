@@ -5,6 +5,6 @@
 function debug($something)
 {
     echo '<pre>';
-    print_r($something);
+    var_dump($something);
     echo '</pre>';
 }
