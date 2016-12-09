@@ -12,6 +12,7 @@ class Mainpage extends CI_Controller
 
     public function index()
     {
+
         $this->getEventList();
     }
 
@@ -20,7 +21,8 @@ class Mainpage extends CI_Controller
 //        $events = $this->Event_model->getEventList();
 //        $data = array("events"=>$events);
 
-        $this->load->view('header');
+        $this->data['active'] = "home";
+        $this->load->view('header', $this->data);
         $this->load->view('main/main');
         $this->load->view('footer');
 
@@ -39,12 +41,18 @@ class Mainpage extends CI_Controller
 
     public function about()
     {
-
+        $this->data['active'] = "about";
+        $this->load->view('header', $this->data);
+        $this->load->view('about/about');
+        $this->load->view('footer');
     }
 
     public function contacts()
     {
-
+        $this->data['active'] = "contacts";
+        $this->load->view('header', $this->data);
+        $this->load->view('contacts/contacts');
+        $this->load->view('footer');
     }
 
 }
