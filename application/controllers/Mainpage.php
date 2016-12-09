@@ -6,7 +6,9 @@ class Mainpage extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('User_model');
         $this->load->model('Event_model');
+        $this->load->model('Request_model');
         $this->load->model('Category_model');
         $this->load->model('Competition_model');
     }
@@ -34,9 +36,6 @@ class Mainpage extends CI_Controller
     {
         $event = $this->Event_model->getEvent($id);
         $event['category'] = $this->Category_model->getCategory($event['category_id']);
-        debug($event);
-
-
 //        $data = array("events"=>$event);
 
 //        $this->load->view('header');
@@ -47,8 +46,15 @@ class Mainpage extends CI_Controller
 
     public function sendTicket()
     {
+        if($this->User_model->checkAuth()){
+            $post = $this->input->post(NULL, TRUE);
+            debug($post);
+            $post['user_id'] = $_SESSION['user']['id'];
+            $this->Request_model->addRequest($post);
+        }else{
 
-        $post = $this->input->post(NULL, TRUE);
+        }
+
 
     }
 
