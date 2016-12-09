@@ -7,20 +7,17 @@ class Mainpage extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Event_model');
-
+        $this->load->model('Competition_model');
     }
 
     public function index()
     {
-
         $this->getEventList();
     }
 
     public function getEventList()
     {
-//        $events = $this->Event_model->getEventList();
-//        $data = array("events"=>$events);
-
+        $this->data['events'] = $this->Event_model->getEventList();
         $this->data['active'] = "home";
         $this->load->view('header', $this->data);
         $this->load->view('main/main');
@@ -31,16 +28,24 @@ class Mainpage extends CI_Controller
 
     public function getEvent($id)
     {
+        $event = $this->Event_model->getEvent($id);
+        $data = array("events"=>$event);
+
+//        $this->load->view('header');
+//        $this->load->view('main/main', $data);
+//        $this->load->view('footer');
 
     }
 
     public function sendTicket()
     {
+        $post = $this->input->post(NULL, TRUE);
 
     }
 
     public function about()
     {
+        $this->data['competitive_list'] = $this->Competition_model->getCompetitionList();
         $this->data['active'] = "about";
         $this->load->view('header', $this->data);
         $this->load->view('about/about');

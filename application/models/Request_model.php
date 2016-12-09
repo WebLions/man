@@ -3,14 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Request_model extends CI_Model
 {
+    private $tableName = 'requests';
+
     public function getRequestList()
     {
-        $result = $this->db->get('requests');
-        if(empty($result)){
-            return false;
-        }
+        $result = $this->db->get($this->tableName);
         $result = $result->result_array();
-        return $result;
+        return $result;;
     }
 
     public function addRequest($data)
