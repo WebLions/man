@@ -8,7 +8,6 @@ class User extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('User_model');
-
     }
 
     public function login()
@@ -29,12 +28,16 @@ class User extends CI_Controller
 
     public function getLoginData()
     {
-        $this->form_validation->set_rules('login', 'Логін', 'required');
+        $this->form_validation->set_rules('email', 'Пошта', 'required');
         $this->form_validation->set_rules('password', 'Пароль', 'required');
         $post = $this->input->post(NULL, TRUE);
         if ($this->form_validation->run() == TRUE){
             //Post is okay
-            $this->User_model->login($post['login'], $post['password']);
+            if($this->User_model->login($post['email'], $post['password']) ){
+                header('Location: /account');
+            }else{
+                header('Location: /');
+            }
         }else{
             $this->session->set_flashdata('flashError', 'Заповнені не всі поля.');
         }
@@ -42,7 +45,10 @@ class User extends CI_Controller
 
     public function logout()
     {
-        $this->User_model->logout();
+        if($this->User_model->logout()){
+            header('Location: /');
+        };
+
     }
 
     public function sign_up()
@@ -61,7 +67,10 @@ class User extends CI_Controller
 
     public function getSignUpData()
     {
-
+        $post = $this->input->post(NULL, TRUE);
+        $uid = $this->User_model->addUser($post);
+        $_SESSION['user']['id'] = $uid;
+        header('Location: /account');
     }
 
     public function admin_login()
@@ -80,6 +89,19 @@ class User extends CI_Controller
 
     public function getAdminData()
     {
+        $this->form_validation->set_rules('email', 'Пошта', 'required');
+        $this->form_validation->set_rules('password', 'Пароль', 'required');
+        $post = $this->input->post(NULL, TRUE);
+        if ($this->form_validation->run() == TRUE){
+            //Post is okay
+            if($this->User_model->loginAdmin($post['email'], $post['password']) ){
+                header('Location: /admin');
+            }else{
+                header('Location: /');
+            }
+        }else{
+            $this->session->set_flashdata('flashError', 'Заповнені не всі поля.');
+        }
 
     }
 
