@@ -19,6 +19,9 @@ class Mainpage extends CI_Controller
     public function getEventList()
     {
         $this->data['events'] = $this->Event_model->getEventList();
+        foreach ($this->data['events'] as $k=>$event){
+            $this->data['events'][$k]['category'] = $this->Category_model->getCategory($event['category_id']);
+        }
         $this->data['active'] = "home";
         $this->load->view('header', $this->data);
         $this->load->view('main/main');
@@ -44,6 +47,7 @@ class Mainpage extends CI_Controller
 
     public function sendTicket()
     {
+
         $post = $this->input->post(NULL, TRUE);
 
     }
