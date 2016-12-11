@@ -20,6 +20,7 @@ class Account extends CI_Controller
         $this->data['active'] = "account";
         $this->load->view('header', $this->data);
         $this->load->view('account/account');
+        $this->load->view('modals/success');
         $this->load->view('footer');
     }
 
@@ -32,7 +33,7 @@ class Account extends CI_Controller
             $requestList[$k]['user'] = $this->User_model->getUser($request['user_id']);
             $requestList[$k]['event'] = $this->Event_model->getEvent($request['event_id']);
             $requestList[$k]['event']['category'] = $this->Category_model->getCategory($requestList[$k]['event']['category_id']);
-        }debug($requestList);
+        };
 
     }
 

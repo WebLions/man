@@ -9,11 +9,11 @@ $(document).ready(function(){
     $('.props-item-line').on('click','header', function(){
         $(this).parent().toggleClass('active');
     })
-    $('.close')
-        .click(function(){
-            $('.form-overlay').removeClass('show');
-            $('.success-overlay').removeClass('show');
-        });
+    $('body').on('click','.close', function(){
+        $('.form-overlay').removeClass('show');
+        $('.success-overlay').removeClass('show');
+    })
+
     $('.sign-up')
         .click(function(){
             $('#signUp').toggleClass('show');
@@ -48,6 +48,31 @@ $(document).ready(function(){
         }
     });
 
+    var newItemId;
+
+    $('.delete-new').click(function(){
+        newItemId = $(this).parent().attr('data-new-id');
+        $('.success-overlay').addClass('show');
+        $('.button').html(" ");
+        $('#successText').text('Ви упевнені що хочете відізвати заявку?');
+        $('.success-form').append(
+            '<div class="button delete-yes">Так</div>'+
+            '<div class="button close">Ні</div>'
+        );
+    });
+
+    $('body').on('click','.delete-yes', function(){
+        var link = '/cancel_event';
+        $.ajax({
+            type: "POST",
+            url: link,
+            data: newItemId,
+            success: function () {
+                $('.button').html(" ");
+                $('#successText').text('Заявка була відізвана');
+            }
+        });
+    });
     $('.sign-up-event').click(function () {
         var getId = $(this).attr('data-event-id');
         var link = '/send_ticket';
