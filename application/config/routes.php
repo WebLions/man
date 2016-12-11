@@ -63,6 +63,7 @@ $route['translate_uri_dashes'] = FALSE;
 /*Main pages*/
 $route['event/(:num)'] = 'Mainpage/getEvent/$1';
 $route['send_ticket'] = 'Mainpage/sendTicket';
+$route['cancel_event'] = 'Account/cancelRequest';
 $route['about'] = 'Mainpage/about';
 $route['contacts'] = 'Mainpage/contacts';
 
