@@ -17,23 +17,27 @@ class Account extends CI_Controller
     public function index()
     {
         $this->getUserEventList();
-        $this->data['active'] = "account";
-        $this->load->view('header', $this->data);
-        $this->load->view('account/account');
-        $this->load->view('modals/success');
-        $this->load->view('footer');
     }
 
     public function getUserEventList()
     {
         $uid = $_SESSION['user']['id'];
         $requestList = $this->Request_model->getUserRequestList($uid);
-        foreach ($requestList as $k=>$request){
+        foreach ($requestList as $k=>$request) {
             $requestList[$k]['condition'] = $this->Condition_model->getCondition($request['condition_id']);
             $requestList[$k]['user'] = $this->User_model->getUser($request['user_id']);
             $requestList[$k]['event'] = $this->Event_model->getEvent($request['event_id']);
             $requestList[$k]['event']['category'] = $this->Category_model->getCategory($requestList[$k]['event']['category_id']);
+        }
+        if(empty($requestList)){
+            $requestList = FALSE;
         };
+        $this->data['events'] = $requestList;
+        $this->data['active'] = "account";
+        debug($requestList);
+        $this->load->view('header', $this->data);
+        $this->load->view('account/account');
+        $this->load->view('footer');
 
     }
 
