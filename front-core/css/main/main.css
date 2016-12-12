@@ -76,6 +76,7 @@ main>section article p{
     font-family: Sitka;
     font-size: 0.9em;
     margin-bottom: 2em;
+    letter-spacing:-0.8px;
 }
 main>section article p>label{
     font-family: HelveticaNeueRoman;
@@ -86,7 +87,7 @@ main>section article footer li{
     list-style-type: none;
     font-family: HelveticaNeueItalic;
     font-size: 0.8em;
-    letter-spacing:0.04em;
+    letter-spacing:0.01em;
     margin-bottom:5px;
 }
 main>section article footer{

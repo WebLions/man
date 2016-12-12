@@ -28,6 +28,7 @@ class Admin extends CI_Controller
             $requestList[$k]['event'] = $this->Event_model->getEvent($request['event_id']);
             $requestList[$k]['event']['category'] = $this->Category_model->getCategory($requestList[$k]['event']['category_id']);
         }
+        debug($requestList);
     }
 
     public function approve_request()
