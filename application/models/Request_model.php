@@ -20,6 +20,22 @@ class Request_model extends CI_Model
         return $result;
     }
 
+    public function getDeclinedRequestList()
+    {
+        $this->db->where('condition_id', DECLINED);
+        $result = $this->db->get($this->tableName);
+        $result = $result->result_array();
+        return $result;
+    }
+
+    public function getUnreadRequestList()
+    {
+        $this->db->where('condition_id', UNREAD);
+        $result = $this->db->get($this->tableName);
+        $result = $result->result_array();
+        return $result;
+    }
+
     public function addRequest($data)
     {
         return $this->db->insert($this->tableName, $data);
@@ -28,19 +44,19 @@ class Request_model extends CI_Model
     public function approveRequest($id)
     {
         $this->db->where('id', $id);
-        return $this->db->update($this->tableName, array('condition_id' => 2));
+        return $this->db->update($this->tableName, array('condition_id' => APPROVED));
     }
 
     public function declineRequest($id)
     {
         $this->db->where('id', $id);
-        return $this->db->update($this->tableName, array('condition_id' => 3));
+        return $this->db->update($this->tableName, array('condition_id' => DECLINED));
     }
 
     public function cancelRequest($id)
     {
         $this->db->where('id', $id);
-        return $this->db->update($this->tableName, array('condition_id' => 4));
+        return $this->db->update($this->tableName, array('condition_id' => CANCELED));
     }
 
 }
