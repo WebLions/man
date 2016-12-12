@@ -34,7 +34,6 @@ class Account extends CI_Controller
         };
         $this->data['events'] = $requestList;
         $this->data['active'] = "account";
-        debug($requestList);
         $this->load->view('header', $this->data);
         $this->load->view('account/account');
         $this->load->view('footer');

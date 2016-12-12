@@ -21,14 +21,24 @@ class Admin extends CI_Controller
 
     public function getRequestList()
     {
-        $requestList = $this->Request_model->getRequestList();
+        $requestList = $this->Request_model->getUnreadRequestList();
         foreach ($requestList as $k=>$request){
             $requestList[$k]['condition'] = $this->Condition_model->getCondition($request['condition_id']);
             $requestList[$k]['user'] = $this->User_model->getUser($request['user_id']);
             $requestList[$k]['event'] = $this->Event_model->getEvent($request['event_id']);
             $requestList[$k]['event']['category'] = $this->Category_model->getCategory($requestList[$k]['event']['category_id']);
         }
-        debug($requestList);
+    }
+
+    public function getDeclinedRequestList()
+    {
+        $requestList = $this->Request_model->getDeclinedRequestList();
+        foreach ($requestList as $k=>$request){
+            $requestList[$k]['condition'] = $this->Condition_model->getCondition($request['condition_id']);
+            $requestList[$k]['user'] = $this->User_model->getUser($request['user_id']);
+            $requestList[$k]['event'] = $this->Event_model->getEvent($request['event_id']);
+            $requestList[$k]['event']['category'] = $this->Category_model->getCategory($requestList[$k]['event']['category_id']);
+        }
     }
 
     public function approve_request()
@@ -50,6 +60,15 @@ class Admin extends CI_Controller
         }else{
             $this->getEventData();
         }
+    }
+
+    public function getEventList()
+    {
+        $this->data['events'] = $this->Event_model->getEventList();
+        foreach ($this->data['events'] as $k=>$event){
+            $this->data['events'][$k]['category'] = $this->Category_model->getCategory($event['category_id']);
+        }
+
     }
 
     public function viewEventForm()
