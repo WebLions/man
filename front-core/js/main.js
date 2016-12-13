@@ -79,7 +79,7 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             url: link,
-            data: getId,
+            data: {'event_id':getId},
             success: function () {
                 $('.success-overlay').addClass('show');
                 $('#successText').text('Ви успішно зареєструвалися');

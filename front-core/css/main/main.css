@@ -5,6 +5,7 @@
 }
 main{
     display:flex;
+    min-height: 100vh;
 }
 aside,
 section{
@@ -49,9 +50,9 @@ main>aside ul li:hover{
     color:#69859d;
 }
 main>section{
-    width: calc(80vw - 1em);
+    width: calc(81vw - 1em);
     background-color: #edf1f6;
-    padding: 3em 0 3em 1em;
+    padding: 4.4em 0 3em 1em;
     flex-direction: column;
     margin-left: 20vw;
     min-height: calc(100Vh - 6em);
@@ -465,4 +466,24 @@ form input[type="submit"]:hover{
     width: 100%;
     text-align: center;
     font-family: HelveticaNeueRoman;
+}
+.admin-content{
+    width:80vw;
+    max-width: 1000px;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding:3em 2em;
+    border-radius: 5px;
+}
+.add-event{
+    width:20%;
+}
+.add-form{
+    width:100%;
+}
+.add-button{
+    margin-top: 1em !important;
 }

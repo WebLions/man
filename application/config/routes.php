@@ -69,5 +69,8 @@ $route['contacts'] = 'Mainpage/contacts';
 
 
 /*Admin pages*/
-
+$route['admin/'] = 'Admin/index';
+$route['status'] = 'Admin/eventsStatus';
+$route['events'] = 'Admin/eventsList';
+$route['add-event'] = 'Admin/addEvent';
 /*Account pages*/
