@@ -12,7 +12,7 @@
 
         <title>Мала академія наук Одесса</title>
 
-        <?=($active=="admin")? '<link href="/front-core/css/admin/semantic.css" rel="stylesheet">' : ''?>
+        <?=($type=="admin")? '<link href="/front-core/css/admin/semantic.css" rel="stylesheet">' : ''?>
         <link href="/front-core/css/main/main.css" rel="stylesheet">
         <link href="/front-core/css/jquery.bxslider.css" rel="stylesheet">
 
@@ -27,39 +27,27 @@
                 <nav>
                     <header>МАН Одесса</header>
                     <ul>
-                        <li class="<?=($active=="home")? 'active' : ''?>">
-                            <a href="/">
+                        <li class="<?=($active=="admin")? 'active' : ''?>">
+                            <a href="/admin">
                                 Головна
                             </a>
                         </li>
-                        <li class="<?=($active=="about")? 'active' : ''?>">
-                            <a href="/about">
-                                Детальніше про МАН
+                        <li class="<?=($active=="events")? 'active' : ''?>">
+                            <a href="/events">
+                                Заходи
                             </a>
                         </li>
-                        <li class="<?=($active=="contacts")? 'active' : ''?>">
-                            <a href="/contacts">
-                                Контакти
+                        <li class="<?=($active=="status")? 'active' : ''?>">
+                            <a href="/status">
+                                Контроль за заявками
                             </a>
                         </li>
                         <li class="spliter"></li>
-                        <?=(checkAuth())? '
-                            <li>
-                                <a href="/account">
-                                    Особистий кабінет
-                                </a>
-                            </li>' : ''
-                        ?>
-                        <?=(checkAuth()) ? '<li>
-                                    <a href="/user/logout">
-                                        Вийти
-                                    </a>
-                        </li>' : '<li class="sign-in">Увійти</li>'?>
-                        <?=(!checkAuth()) ? '
-                                     <li class="sign-up">
-                                        Зареєструватися
-                                     </li>
-                        </li>' : ''?>
+                        <li>
+                            <a href="/logout">
+                                Вийти
+                            </a>
+                        </li>
 
                     </ul>
                 </nav>

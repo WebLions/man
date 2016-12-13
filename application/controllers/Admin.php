@@ -12,12 +12,42 @@ class Admin extends CI_Controller
         $this->load->model('Category_model');
         $this->load->model('Condition_model');
         $this->load->model('Competition_model');
+        $this->data['type'] = 'admin';
     }
 
     public function index()
     {
+        $this->data['active'] = "admin";
+        $this->load->view('admin/header', $this->data);
+        $this->load->view('admin/admin');
+        $this->load->view('footer');
         $this->getRequestList();
     }
+    public function eventsStatus()
+    {
+        $this->data['active'] = "status";
+        $this->load->view('admin/header', $this->data);
+        $this->load->view('admin/events_status');
+        $this->load->view('footer');
+        $this->getRequestList();
+    }
+    public function eventsList()
+    {
+        $this->data['active'] = "events";
+        $this->load->view('admin/header', $this->data);
+        $this->load->view('admin/events');
+        $this->load->view('footer');
+        $this->getRequestList();
+    }
+    public function addEvent()
+    {
+        $this->data['active'] = "events";
+        $this->load->view('admin/header', $this->data);
+        $this->load->view('admin/add_page');
+        $this->load->view('footer');
+        $this->getRequestList();
+    }
+
 
     public function getRequestList()
     {
