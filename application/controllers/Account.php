@@ -25,7 +25,7 @@ class Account extends CI_Controller
         $requestList = $this->Request_model->getUserRequestList($uid);
         foreach ($requestList as $k=>$request) {
             $requestList[$k]['condition'] = $this->Condition_model->getCondition($request['condition_id']);
-            $requestList[$k]['user'] = $this->User_model->getUser($request['user_id']);
+//            $requestList[$k]['user'] = $this->User_model->getUser($request['user_id']);
             $requestList[$k]['event'] = $this->Event_model->getEvent($request['event_id']);
             $requestList[$k]['event']['category'] = $this->Category_model->getCategory($requestList[$k]['event']['category_id']);
         }

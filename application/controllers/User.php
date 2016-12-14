@@ -75,11 +75,11 @@ class User extends CI_Controller
 
     public function admin_login()
     {
-        if(empty($_POST)){
-            $this->viewAdminForm();
-        }else{
+//        if(empty($_POST)){
+//            $this->viewAdminForm();
+//        }else{
             $this->getAdminData();
-        }
+//        }
     }
 
     public function viewAdminForm()
@@ -89,12 +89,12 @@ class User extends CI_Controller
 
     public function getAdminData()
     {
-        $this->form_validation->set_rules('email', 'Пошта', 'required');
+        $this->form_validation->set_rules('login', 'Пошта', 'required');
         $this->form_validation->set_rules('password', 'Пароль', 'required');
         $post = $this->input->post(NULL, TRUE);
         if ($this->form_validation->run() == TRUE){
             //Post is okay
-            if($this->User_model->loginAdmin($post['email'], $post['password']) ){
+            if( $this->User_model->loginAdmin($post['login'], $post['password']) ){
                 header('Location: /admin');
             }else{
                 header('Location: /');

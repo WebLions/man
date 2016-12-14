@@ -4,7 +4,7 @@
         <table class="ui blue table">
             <thead>
             <tr>
-                <th>ID</th>
+                <th>№</th>
                 <th>Назва заходу</th>
                 <th>ПІБ Учасника</th>
                 <th>Категорія</th>
@@ -12,34 +12,22 @@
             </tr>
             </thead>
             <tbody>
+            <?foreach ($events as $event): ?>
             <tr>
-                <td>1</td>
-                <td>Семінар</td>
-                <td>Серцов Роман Валерійович</td>
-                <td>МАН</td>
+                <td><?=$event['id']?></td>
+                <td><?=$event['event']['title']?></td>
+                <td><?=$event['user']['fio']?></td>
+                <td><?=$event['event']['category']?></td>
                 <td>
-                    <div class="ui green button accept-participant" data-participant-id="1">
+                    <div class="ui green button accept-participant" data-participant-id="<?=$event['id']?>">
                         Підтвердити
                     </div>
-                    <div class="ui red button cancel-participant" data-participant-id="1">
+                    <div class="ui red button cancel-participant" data-participant-id="<?=$event['id']?>">
                         Відхилити
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Семінар</td>
-                <td>Локтєв Михайло Михайлович</td>
-                <td>МАН</td>
-                <td>
-                    <div class="ui green button accept-participant" data-participant-id="2">
-                        Підтвердити
-                    </div>
-                    <div class="ui red button cancel-participant" data-participant-id="1">
-                        Відхилити
-                    </div>
-                </td>
-            </tr>
+            <? endforeach;?>
             </tbody>
         </table>
     </div>

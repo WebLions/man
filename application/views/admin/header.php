@@ -44,7 +44,7 @@
                         </li>
                         <li class="spliter"></li>
                         <li>
-                            <a href="/logout">
+                            <a href="/user/logout">
                                 Вийти
                             </a>
                         </li>

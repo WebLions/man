@@ -4,7 +4,7 @@
         <table class="ui red table">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>№</th>
                     <th>Назва заходу</th>
                     <th>ПІБ Учасника</th>
                     <th>Категорія</th>
@@ -12,35 +12,26 @@
                 </tr>
             </thead>
             <tbody>
+            <? foreach ($declined as $dec):?>
             <tr>
-                <td>1</td>
-                <td>Семінар</td>
-                <td>Серцов Роман Валерійович</td>
-                <td>МАН</td>
+                <td><?=$dec['id']?></td>
+                <td><?=$dec['event']['title']?></td>
+                <td><?=$dec['user']['fio']?></td>
+                <td><?=$dec['event']['category']?></td>
                 <td>
-                    <div class="ui green button accept-participant" data-participant-id="1">
+                    <div class="ui green button accept-participant" data-participant-id="<?=$dec['id']?>">
                         Підтвердити
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Семінар</td>
-                <td>Локтєв Михайло Михайлович</td>
-                <td>МАН</td>
-                <td>
-                    <div class="ui green button accept-participant" data-participant-id="2">
-                        Підтвердити
-                    </div>
-                </td>
-            </tr>
+            <? endforeach;?>
             </tbody>
         </table>
         <h3>Прийняті заявки</h3>
         <table class="ui green table">
             <thead>
             <tr>
-                <th>ID</th>
+                <th>№</th>
                 <th>Назва заходу</th>
                 <th>ПІБ Учасника</th>
                 <th>Категорія</th>
@@ -48,28 +39,19 @@
             </tr>
             </thead>
             <tbody>
+            <? foreach ($approved as $approv): ?>
             <tr>
-                <td>1</td>
-                <td>Семінар</td>
-                <td>Серцов Роман Валерійович</td>
-                <td>МАН</td>
+                <td><?=$approv['id']?></td>
+                <td><?=$approv['event']['title']?></td>
+                <td><?=$approv['user']['fio']?></td>
+                <td><?=$approv['event']['category']?></td>
                 <td>
-                    <div class="ui red button accept-participant" data-participant-id="1">
+                    <div class="ui red button accept-participant" data-participant-id="<?=$approv['id']?>">
                        Відмовити
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Семінар</td>
-                <td>Локтєв Михайло Михайлович</td>
-                <td>STEM</td>
-                <td>
-                    <div class="ui red button accept-participant" data-participant-id="2">
-                        Відмовити
-                    </div>
-                </td>
-            </tr>
+            <? endforeach;?>
             </tbody>
         </table>
     </div>

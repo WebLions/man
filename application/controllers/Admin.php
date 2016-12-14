@@ -7,47 +7,43 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->model('User_model');
+        $this->check_admin();
+
         $this->load->model('Event_model');
         $this->load->model('Request_model');
         $this->load->model('Category_model');
         $this->load->model('Condition_model');
         $this->load->model('Competition_model');
+
         $this->data['type'] = 'admin';
+
     }
 
     public function index()
     {
         $this->data['active'] = "admin";
+        $this->data['events'] = $this->getRequestList();
         $this->load->view('admin/header', $this->data);
         $this->load->view('admin/admin');
         $this->load->view('footer');
-        $this->getRequestList();
     }
     public function eventsStatus()
     {
         $this->data['active'] = "status";
+        $this->data['declined'] = $this->getDeclinedRequestList();
+        $this->data['approved'] = $this->getApprovedRequestList();
         $this->load->view('admin/header', $this->data);
         $this->load->view('admin/events_status');
         $this->load->view('footer');
-        $this->getRequestList();
     }
     public function eventsList()
     {
         $this->data['active'] = "events";
+        $this->getEventList();
         $this->load->view('admin/header', $this->data);
         $this->load->view('admin/events');
         $this->load->view('footer');
-        $this->getRequestList();
     }
-    public function addEvent()
-    {
-        $this->data['active'] = "events";
-        $this->load->view('admin/header', $this->data);
-        $this->load->view('admin/add_page');
-        $this->load->view('footer');
-        $this->getRequestList();
-    }
-
 
     public function getRequestList()
     {
@@ -58,6 +54,7 @@ class Admin extends CI_Controller
             $requestList[$k]['event'] = $this->Event_model->getEvent($request['event_id']);
             $requestList[$k]['event']['category'] = $this->Category_model->getCategory($requestList[$k]['event']['category_id']);
         }
+        return $requestList;
     }
 
     public function getDeclinedRequestList()
@@ -69,6 +66,19 @@ class Admin extends CI_Controller
             $requestList[$k]['event'] = $this->Event_model->getEvent($request['event_id']);
             $requestList[$k]['event']['category'] = $this->Category_model->getCategory($requestList[$k]['event']['category_id']);
         }
+        return $requestList;
+    }
+
+    public function getApprovedRequestList()
+    {
+        $requestList = $this->Request_model->getApprovedRequestList();
+        foreach ($requestList as $k=>$request){
+            $requestList[$k]['condition'] = $this->Condition_model->getCondition($request['condition_id']);
+            $requestList[$k]['user'] = $this->User_model->getUser($request['user_id']);
+            $requestList[$k]['event'] = $this->Event_model->getEvent($request['event_id']);
+            $requestList[$k]['event']['category'] = $this->Category_model->getCategory($requestList[$k]['event']['category_id']);
+        }
+        return $requestList;
     }
 
     public function approve_request()
@@ -83,14 +93,7 @@ class Admin extends CI_Controller
         $this->Request_model->declineRequest($post);
     }
 
-    public function create_event()
-    {
-        if(empty($_POST)){
-            $this->viewEventForm();
-        }else{
-            $this->getEventData();
-        }
-    }
+
 
     public function getEventList()
     {
@@ -101,9 +104,21 @@ class Admin extends CI_Controller
 
     }
 
+    public function add_event()
+    {
+        if(empty($_POST)){
+            $this->viewEventForm();
+        }else{
+            $this->getEventData();
+        }
+    }
+
     public function viewEventForm()
     {
-
+        $this->data['active'] = "events";
+        $this->load->view('admin/header', $this->data);
+        $this->load->view('admin/add_page');
+        $this->load->view('footer');
     }
 
     public function getEventData()
@@ -138,5 +153,13 @@ class Admin extends CI_Controller
         $id = $this->input->post('id', TRUE);
         $this->Event_model->deleteEvent($id);
     }
+
+    private function check_admin()
+    {
+        if(!$this->User_model->checkAdmin()){
+            header('Location: /');
+        }
+    }
+
 
 }

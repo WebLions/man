@@ -4,39 +4,29 @@
         <table class="ui blue table">
             <thead>
             <tr>
-                <th>ID</th>
+                <th>№</th>
                 <th>Назва заходу</th>
                 <th>Дата</th>
                 <th>Функції</th>
             </tr>
             </thead>
             <tbody>
+            <? $i=1;
+            foreach ($events as $event):?>
             <tr>
-                <td>1</td>
-                <td>Семінар</td>
-                <td>12.12.2016</td>
+                <td><?=$i++?></td>
+                <td><?=$event['title']?></td>
+                <td><?=$event['date_of_start']?></td>
                 <td>
-                    <div class="ui blue button edit-event" data-participant-id="1">
+                    <div class="ui blue button edit-event" data-participant-id="<?=$event['id']?>">
                        Редагувати
                     </div>
-                    <div class="ui red button delete-event" data-participant-id="1">
+                    <div class="ui red button delete-event" data-participant-id="<?=$event['id']?>">
                         Видалити
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Курси</td>
-                <td>12.12.2016</td>
-                <td>
-                    <div class="ui blue button edit-event" data-participant-id="1">
-                        Редагувати
-                    </div>
-                    <div class="ui red button delete-event" data-participant-id="1">
-                        Видалити
-                    </div>
-                </td>
-            </tr>
+            <? endforeach;?>
             </tbody>
         </table>
         <a href="/add-event" class="ui blue button add-event">Додати захід</a>

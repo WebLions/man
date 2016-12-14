@@ -28,6 +28,14 @@ class Request_model extends CI_Model
         return $result;
     }
 
+    public function getApprovedRequestList()
+    {
+        $this->db->where('condition_id', APPROVED);
+        $result = $this->db->get($this->tableName);
+        $result = $result->result_array();
+        return $result;
+    }
+
     public function getUnreadRequestList()
     {
         $this->db->where('condition_id', UNREAD);
