@@ -26,7 +26,7 @@ $(document).ready(function(){
     $('.change-modal').click(function () {
         if($(this).attr('data-modal-type') == 'admin'){
             $('.modal-title').text('Особистий кабінет');
-            $(this).parent().attr('action','/user/admin_login');
+            $(this).parent().attr('action','/user/login');
             $(this)
                 .attr('data-modal-type','user')
                 .text('Адмін. панель');
@@ -37,7 +37,7 @@ $(document).ready(function(){
 
         }else{
             $('.modal-title').text('Адмін. панель');
-            $(this).parent().attr('action','/user/login');
+            $(this).parent().attr('action','/user/admin_login');
             $(this)
                 .attr('data-modal-type','admin')
                 .text('Особистий кабінет');
@@ -62,7 +62,7 @@ $(document).ready(function(){
     });
 
     $('body').on('click','.delete-yes', function(){
-        var link = '/cancel_event';
+        var link = '/account/cancelRequest';
         $.ajax({
             type: "POST",
             url: link,

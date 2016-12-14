@@ -62,9 +62,18 @@ class Mainpage extends CI_Controller
 
     public function sendRequestData()
     {
+        $this->form_validation->set_rules('event_id', 'ID події', 'required');
         $post = $this->input->post(NULL, TRUE);
-        $post['user_id'] = $_SESSION['user']['id'];
-        $this->Request_model->addRequest($post);
+        if ($this->form_validation->run() == TRUE) {
+            if(isset($_SESSION['user'])) {
+                $post['user_id'] = $_SESSION['user']['id'];
+                $this->Request_model->addRequest($post);
+            }else{
+                return FALSE;
+            }
+        }else{
+            return FALSE;
+        }
     }
 
     public function showRegForm()

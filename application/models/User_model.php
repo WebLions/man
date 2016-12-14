@@ -26,10 +26,7 @@ class User_model extends CI_Model
 
     public function loginAdmin($login, $password)
     {
-        if(!isset($email, $password)){
-            return false;
-        }
-        if(password_verify($password, $this->admin_password) AND $login === $this->admin_login) {
+        if(password_verify($password, $this->admin_password) AND $login == $this->admin_login){
             $_SESSION['admin'] = true;
             return true;
         }else{
@@ -46,6 +43,15 @@ class User_model extends CI_Model
     public function checkAuth()
     {
         if(isset($_SESSION['user'])){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function checkAdmin()
+    {
+        if(isset($_SESSION['admin'])){
             return true;
         }else{
             return false;
