@@ -19,7 +19,7 @@
                 <td><?=$dec['user']['fio']?></td>
                 <td><?=$dec['event']['category']?></td>
                 <td>
-                    <div class="ui green button accept-participant" data-participant-id="<?=$dec['id']?>">
+                    <div class="ui green button accept-participant" href="/approve-request/<?=$dec['id']?>">
                         Підтвердити
                     </div>
                 </td>
@@ -46,7 +46,7 @@
                 <td><?=$approv['user']['fio']?></td>
                 <td><?=$approv['event']['category']?></td>
                 <td>
-                    <div class="ui red button accept-participant" data-participant-id="<?=$approv['id']?>">
+                    <div class="ui red button accept-participant" href="/decline-request/<?=$approv['id']?>">
                        Відмовити
                     </div>
                 </td>

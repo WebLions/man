@@ -18,10 +18,10 @@
                 <td><?=$event['title']?></td>
                 <td><?=$event['date_of_start']?></td>
                 <td>
-                    <div class="ui blue button edit-event" data-participant-id="<?=$event['id']?>">
+                    <a class="ui blue button edit-event" href="/edit-event/<?=$event['id']?>">
                        Редагувати
                     </div>
-                    <div class="ui red button delete-event" data-participant-id="<?=$event['id']?>">
+                    <div class="ui red button delete-event" href="/delete-event/<?=$event['id']?>">
                         Видалити
                     </div>
                 </td>

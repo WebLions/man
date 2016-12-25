@@ -12,7 +12,9 @@
                     <div class="props-item-line">
                         <header>
                             <p><?=$competitiveArray['competition']?> <p>
-                            <i><img src="/front-core/images/arrow.png"></i>
+                            <i>
+
+                            </i>
                         </header>
                         <article>
                         <?php foreach($competitiveArray as $competitiveItem):?>
