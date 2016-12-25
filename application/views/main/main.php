@@ -23,6 +23,7 @@
                                 <li>Дата та час проводження: <?= $event['date_of_start'] ?></li>
                             </ul>
                             <?php
+                            if(checkAuth()):
                             if($userReq):
                               foreach ($userReq as $key => $uEventId):
                                   if ($uEventId == $event['id']):?>
@@ -34,7 +35,9 @@
                             <?php endif ?>
                               <?php endforeach?>
                             <?php endif ?>
+                            <?php else: ?>
                             <div class="sign-up-event" data-event-id="<?= $event['id'] ?>">Записатись</div>
+                            <?php endif ?>
                         </footer>
                     </article>
                 </div>
