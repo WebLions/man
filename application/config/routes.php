@@ -57,13 +57,12 @@ $route['translate_uri_dashes'] = FALSE;
 | -------------------------------------------------------------------------
 | CUSTOM ROUTES
 | -------------------------------------------------------------------------
-| Routes of site
+|
 |
 */
 /*Main pages*/
 $route['event/(:num)'] = 'Mainpage/getEvent/$1';
 $route['send_ticket'] = 'Mainpage/sendTicket';
-$route['cancel_event'] = 'Account/cancelRequest';
 $route['about'] = 'Mainpage/about';
 $route['contacts'] = 'Mainpage/contacts';
 
@@ -73,4 +72,11 @@ $route['admin/'] = 'Admin/index';
 $route['status'] = 'Admin/eventsStatus';
 $route['events'] = 'Admin/eventsList';
 $route['add-event'] = 'Admin/add_event';
+$route['edit-event'] = 'Admin/edit_event';
+$route['delete-event'] = 'Admin/delete_event';
+$route['approve-request'] = 'Admin/approve_request';
+$route['decline-request'] = 'Admin/decline_request';
+
 /*Account pages*/
+$route['cancel-request'] = 'Account/cancelRequest';
+
