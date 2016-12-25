@@ -43,6 +43,9 @@ class Account extends CI_Controller
     public function cancelRequest()
     {
         $post = $this->input->post(NULL, TRUE);
+        if(empty($post)){
+            return 'Empty id!';
+        }
         $this->Request_model->cancelRequest($post);
     }
 
