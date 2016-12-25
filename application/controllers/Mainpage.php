@@ -24,6 +24,9 @@ class Mainpage extends CI_Controller
         foreach ($this->data['events'] as $k=>$event){
             $this->data['events'][$k]['category'] = $this->Category_model->getCategory($event['category_id']);
         }
+        $userReq = $this->getUserRequests();
+        $this->data['userReq'] = $userReq;
+
         $this->data['active'] = "home";
         $this->load->view('header', $this->data);
         $this->load->view('main/main');
@@ -53,27 +56,24 @@ class Mainpage extends CI_Controller
     public function sendTicket()
     {
         if($this->User_model->checkAuth()){
-            echo 'asdasdsad';
             $this->sendRequestData();
         }else{
-            $this->showRegForm();
+            return false;
         }
     }
 
     public function sendRequestData()
     {
-        $this->form_validation->set_rules('event_id', 'ID події', 'required');
         $post = $this->input->post(NULL, TRUE);
-        if ($this->form_validation->run() == TRUE) {
+        if(empty($post)){
+            return FALSE;
+        }
             if(isset($_SESSION['user'])) {
                 $post['user_id'] = $_SESSION['user']['id'];
                 $this->Request_model->addRequest($post);
             }else{
                 return FALSE;
             }
-        }else{
-            return FALSE;
-        }
     }
 
     public function showRegForm()
@@ -102,4 +102,13 @@ class Mainpage extends CI_Controller
         $this->load->view('footer');
     }
 
+    protected function getUserRequests()
+    {
+        if(!$this->User_model->checkAuth()){
+            return false;
+        }
+        $uid = $_SESSION['user']['id'];
+        $userReq = $this->Request_model->getUserRequestArr($uid);
+        return $userReq;
+    }
 }

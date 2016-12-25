@@ -7,6 +7,7 @@ class Account extends CI_Controller
     {
         parent::__construct();
         $this->load->model('User_model');
+        $this->checkAuth();
         $this->load->model('Event_model');
         $this->load->model('Request_model');
         $this->load->model('Category_model');
@@ -47,6 +48,13 @@ class Account extends CI_Controller
             return 'Empty id!';
         }
         $this->Request_model->cancelRequest($post);
+    }
+
+    protected function checkAuth()
+    {
+        if(!$this->User_model->checkAuth()){
+            header('Location: /');
+        }
     }
 
 }

@@ -20,6 +20,16 @@ class Request_model extends CI_Model
         return $result;
     }
 
+    public function getUserRequestArr($id)
+    {
+        $r_list = $this->getUserRequestList($id);
+        $userReq = array();
+        foreach ($r_list as $request){
+            $userReq[] = $request['event_id'];
+        }
+        return $userReq;
+    }
+
     public function getDeclinedRequestList()
     {
         $this->db->where('condition_id', DECLINED);
