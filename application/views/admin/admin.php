@@ -6,7 +6,7 @@
             <tr>
                 <th>№</th>
                 <th>Назва заходу</th>
-                <th>ПІБ Учасника</th>
+                <th>ПІБ</th>
                 <th>Категорія</th>
                 <th>Функції</th>
             </tr>
@@ -18,7 +18,7 @@
                 <td><?=$event['event']['title']?></td>
                 <td><?=$event['user']['fio']?></td>
                 <td><?=$event['event']['category']?></td>
-                <td>
+                <td class="control-buttons">
                     <div class="ui green button accept-participant" data-participant-id="<?=$event['id']?>">
                         Підтвердити
                     </div>

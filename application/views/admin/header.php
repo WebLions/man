@@ -14,10 +14,8 @@
 
         <?=($type=="admin")? '<link href="/front-core/css/admin/semantic.css" rel="stylesheet">' : ''?>
         <link href="/front-core/css/main/main.css" rel="stylesheet">
-        <link href="/front-core/css/jquery.bxslider.css" rel="stylesheet">
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script src="/front-core/js/jquery.bxslider.js" type="text/javascript"></script>
 
 
     </head>

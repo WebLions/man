@@ -1,6 +1,6 @@
 <!DOCTYPE html>
     <html lang="ua">
-    <head data-isAuth="<?php if(checkAuth()) echo true; else echo false?>">
+    <head data-isAuth="<?php if(checkAuth()) echo true; else echo false?>" data-active-page="<?=$active?>">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -27,40 +27,24 @@
                 <nav>
                     <header>МАН Одесса</header>
                     <ul>
-                        <li class="<?=($active=="home")? 'active' : ''?>">
+                        <li id="home">
                             <a href="/">
                                 Головна
                             </a>
                         </li>
-                        <li class="<?=($active=="about")? 'active' : ''?>">
+                        <li id="about">
                             <a href="/about">
                                 Детальніше про МАН
                             </a>
                         </li>
-                        <li class="<?=($active=="contacts")? 'active' : ''?>">
+                        <li id="contacts">
                             <a href="/contacts">
                                 Контакти
                             </a>
                         </li>
                         <li class="spliter"></li>
-                        <?=(checkAuth())? '
-                            <li>
-                                <a href="/account">
-                                    Особистий кабінет
-                                </a>
-                            </li>' : ''
-                        ?>
-                        <?=(checkAuth()) ? '<li>
-                                    <a href="/user/logout">
-                                        Вийти
-                                    </a>
-                        </li>' : '<li class="sign-in">Увійти</li>'?>
-                        <?=(!checkAuth()) ? '
-                                     <li class="sign-up">
-                                        Зареєструватися
-                                     </li>
-                        </li>' : ''?>
-
+                        <div class="user-dynamic">
+                        </div>
                     </ul>
                 </nav>
             </aside>

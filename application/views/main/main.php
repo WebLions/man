@@ -26,15 +26,12 @@
                             if($userReq):
                               foreach ($userReq as $key => $uEventId):
                                   if ($uEventId == $event['id']):?>
-                                <!--МЕНЯТЬ ЗДЕСЬ -->
-                                <div>ОТписка</div>
-                                <!-- /МЕНЯТЬ ЗДЕСЬ -->
+                                      <div class="cancel-event main-button" data-event-id="<?= $event['id'] ?>">Відписатись</div>
                             <?php else: ?>
-                                <div class="sign-up-event" data-event-id="<?= $event['id'] ?>">Записатись</div>
+                                      <div class="sign-to-event main-button" data-event-id="<?= $event['id'] ?>">Записатись</div>
                             <?php endif ?>
                               <?php endforeach?>
                             <?php endif ?>
-                            <div class="sign-up-event" data-event-id="<?= $event['id'] ?>">Записатись</div>
                         </footer>
                     </article>
                 </div>
