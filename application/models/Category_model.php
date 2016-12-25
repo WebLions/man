@@ -12,4 +12,11 @@ class Category_model extends CI_Model
         $result = $result->row_array();
         return $result['category'];
     }
+
+    public function getCategories()
+    {
+        $result = $this->db->get($this->tableName);
+        $result = $result->result_array();
+        return $result;
+    }
 }

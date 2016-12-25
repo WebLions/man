@@ -19,13 +19,17 @@
                 <textarea type="text" name="full_text" placeholder="Повний опис"></textarea>
             </div>
             <select class="ui fluid search dropdown" name="category_id">
-                <option value="1">МАН</option>
-                <option value="2">STEM</option>
-                <option value="3">Семінар</option>
+                <?php foreach ($categories as $category):?>
+                    <option value="<?=$category['id']?>"><?=$category['category']?></option>
+                <?php endforeach;?>
             </select>
             <div class="field">
                 <label>Кількість місць</label>
                 <input type="text" name="quantity" placeholder="Кількість місць">
+            </div>
+            <div class="field">
+                <label>Кількість місць</label>
+                <input type="text" name="img" placeholder="Посилання на зображення">
             </div>
             <button class="ui green button add-button">Створити</button>
         </form>

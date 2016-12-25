@@ -115,6 +115,7 @@ class Admin extends CI_Controller
 
     public function viewEventForm()
     {
+        $this->data['categories'] = $this->Category_model->getCategories();
         $this->data['active'] = "events";
         $this->load->view('admin/header', $this->data);
         $this->load->view('admin/add_page');
@@ -125,27 +126,27 @@ class Admin extends CI_Controller
     {
         $post = $this->input->post(NULL, TRUE);
         $this->Event_model->addEvent($post);
+        header('Location: /events');
     }
 
-    public function edit_event()
+    public function edit_event($id)
     {
-        if(empty($_POST)){
-            $this->viewEditEvent();
-        }else{
-            $this->getEditEventData();
-        }
-    }
-
-    public function viewEditEvent()
-    {
-        $id = $this->input->post('id', TRUE);
-        $event = $this->Event_model->getEvent($id);
+        $this->data['categories'] = $this->Category_model->getCategories();
+        $this->data['event'] = $this->Event_model->getEvent($id);
+        $this->data['active'] = "events";
+        $this->load->view('admin/header', $this->data);
+        $this->load->view('admin/edit_page');
+        $this->load->view('footer');
     }
 
     public function getEditEventData()
     {
         $post = $this->input->post(NULL, TRUE);
+        if(empty($post)){
+            return false;
+        }
         $this->Event_model->editEvent($post);
+        header('Location: /events');
     }
 
     public function delete_event()
