@@ -90,7 +90,7 @@ $(document).ready(function(){
         $('.buttons-container').html(" ");
         $('#successText').text('Ви упевнені що хочете відізвати заявку?');
         $('.buttons-container').append(
-            '<div class="button cancel-event">Так</div>'+
+            '<div class="button cancel-event" data-event-id='+getId+'>Так</div>'+
             '<div class="button close">Ні</div>'
         );
     });

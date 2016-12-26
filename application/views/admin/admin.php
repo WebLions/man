@@ -19,12 +19,12 @@
                 <td><?=$event['user']['fio']?></td>
                 <td><?=$event['event']['category']?></td>
                 <td class="control-buttons">
-                    <div class="ui green button accept-participant" data-participant-id="<?=$event['id']?>">
+                    <a class="ui green button accept-participant" href="/approve-request/<?=$event['id']?>">
                         Підтвердити
-                    </div>
-                    <div class="ui red button cancel-participant" data-participant-id="<?=$event['id']?>">
+                    </a>
+                    <a class="ui red button cancel-participant" href="/decline-request/<?=$event['id']?>">
                         Відхилити
-                    </div>
+                    </a>
                 </td>
             </tr>
             <? endforeach;?>
