@@ -110,6 +110,9 @@ main>section article footer{
 .user-dynamic li{
     padding: 0.7em 0;
 }
+.user-dynamic li a{
+    padding:0;
+}
 .news-item{
     width: 80%;
     max-width: 900px;
@@ -514,4 +517,13 @@ form input[type="submit"]:hover{
     width: 100%;
     display: flex;
     justify-content: space-around;
+    font-family: HelveticaNeueRoman;
+}
+.cancel-event{
+    background-color:#7a95ab;
+    color:#fff;
+}
+.cancel-event:hover{
+    background-color:#fff;
+    color:#7a95ab;
 }
