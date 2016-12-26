@@ -75,8 +75,8 @@ $route['events'] = 'Admin/eventsList';
 $route['add-event'] = 'Admin/add_event';
 $route['edit-event/(:num)'] = 'Admin/edit_event/$1';
 $route['delete-event/(:num)'] = 'Admin/delete_event/$1';
-$route['approve-request'] = 'Admin/approve_request';
-$route['decline-request'] = 'Admin/decline_request';
+$route['approve-request/(:num)'] = 'Admin/approve_request/$1';
+$route['decline-request/(:num)'] = 'Admin/decline_request/$1';
 
 /*Account pages*/
 $route['cancel-request'] = 'Account/cancelRequest';
