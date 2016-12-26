@@ -17,13 +17,13 @@
                 <td><?=$i++?></td>
                 <td><?=$event['title']?></td>
                 <td><?=$event['date_of_start']?></td>
-                <td>
+                <td class="control-buttons">
                     <a class="ui blue button edit-event" href="/edit-event/<?=$event['id']?>">
                        Редагувати
-                    </div>
-                    <div class="ui red button delete-event" href="/delete-event/<?=$event['id']?>">
+                    </a>
+                    <a class="ui red button delete-event" href="/delete-event/<?=$event['id']?>">
                         Видалити
-                    </div>
+                    </a>
                 </td>
             </tr>
             <? endforeach;?>
