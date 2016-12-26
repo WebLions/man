@@ -149,10 +149,14 @@ class Admin extends CI_Controller
         header('Location: /events');
     }
 
-    public function delete_event()
+    public function delete_event($id)
     {
-        $id = $this->input->post('id', TRUE);
+        if(empty($id)){
+            return false;
+        }
         $this->Event_model->deleteEvent($id);
+        header('Location: /admin');
+
     }
 
     private function check_admin()

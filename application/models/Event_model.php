@@ -7,6 +7,7 @@ class Event_model extends CI_Model
 
     public function getEventList()
     {
+        $this->db->order_by('date_of_create', 'DESC');
         $result = $this->db->get($this->tableName);
         $result = $result->result_array();
         return $result;

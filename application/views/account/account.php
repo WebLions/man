@@ -1,4 +1,4 @@
-<section >
+<section>
     <div class="events-container">
         <?php if(empty($events)):?>
             <!--МЕНЯТЬ ЗДЕСЯ -->
@@ -8,7 +8,7 @@
         <? foreach ($events as $event):?>
         <div class="news-item account" data-new-id="<?=$event['event_id']?>">
                 <article>
-                    <header>
+                    <header data-event-id="<?=$event['event_id']?>">
                         <h2>
                             <a href="/event/<?=$event['event_id']?>">
                                 <?=$event['event']['title']?>

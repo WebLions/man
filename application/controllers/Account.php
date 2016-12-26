@@ -23,7 +23,7 @@ class Account extends CI_Controller
     public function getUserEventList()
     {
         $uid = $_SESSION['user']['id'];
-        $requestList = $this->Request_model->getUserRequestList($uid);
+        $requestList = $this->Request_model->getUserRequestAcc($uid);
         foreach ($requestList as $k=>$request) {
             $requestList[$k]['condition'] = $this->Condition_model->getCondition($request['condition_id']);
 //            $requestList[$k]['user'] = $this->User_model->getUser($request['user_id']);

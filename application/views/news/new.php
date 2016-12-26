@@ -6,9 +6,7 @@
         <article>
             <header>
                 <h2>
-                    <a href="/event/<?=$event['id']?>">
                         <?=$event['title']?>
-                    </a>
                 </h2>
             </header>
             <p>
@@ -20,13 +18,19 @@
                     <li>Залишилось місць:  <?=$event['quantity']?></li>
                     <li>Дата та час проводження: <?=$event['date_of_start']?></li>
                 </ul>
-            <?php foreach ($userReq as $key => $uEventId):
-                    if($uEventId == $event['id']):?>
+                <?php $signed = null;
+                if(checkAuth()) {
+                    foreach ($userReq as $key => $uEventId) {
+                        if ($uEventId == $event['id']) {
+                            $signed = true;
+                        }
+                    }
+                }
+                if($signed):?>
                     <div class="cancel-event main-button" data-event-id="<?=$event['id']?>">Відписатись</div>
                 <?php else:?>
-                <div class="sign-up-event main-button" data-event-id="<?=$event['id']?>">Записатись</div>
-                    <?php endif;
-                endforeach;?>
+                    <div class="sign-to-event main-button" data-event-id="<?=$event['id']?>">Записатись</div>
+                <?php endif;?>
             </footer>
         </article>
     </div>

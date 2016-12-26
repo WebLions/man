@@ -65,6 +65,7 @@ $route['event/(:num)'] = 'Mainpage/getEvent/$1';
 $route['send_ticket'] = 'Mainpage/sendTicket';
 $route['about'] = 'Mainpage/about';
 $route['contacts'] = 'Mainpage/contacts';
+$route['cancel-user-req'] = 'Mainpage/cancelUserReq';
 
 
 /*Admin pages*/
@@ -73,7 +74,7 @@ $route['status'] = 'Admin/eventsStatus';
 $route['events'] = 'Admin/eventsList';
 $route['add-event'] = 'Admin/add_event';
 $route['edit-event/(:num)'] = 'Admin/edit_event/$1';
-$route['delete-event'] = 'Admin/delete_event';
+$route['delete-event/(:num)'] = 'Admin/delete_event/$1';
 $route['approve-request'] = 'Admin/approve_request';
 $route['decline-request'] = 'Admin/decline_request';
 

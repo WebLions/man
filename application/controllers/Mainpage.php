@@ -113,4 +113,13 @@ class Mainpage extends CI_Controller
         $userReq = $this->Request_model->getUserRequestArr($uid);
         return $userReq;
     }
+
+    public function cancelUserReq()
+    {
+        $post = $this->input->post('id', TRUE);
+        if(empty($post)){
+            return 'Empty id!';
+        }
+        $this->Request_model->cancelRequestMainpage($post, $_SESSION['user']['id']);
+    }
 }
