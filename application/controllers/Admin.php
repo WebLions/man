@@ -81,19 +81,23 @@ class Admin extends CI_Controller
         return $requestList;
     }
 
-    public function approve_request()
+    public function approve_request($id)
     {
-        $post = $this->input->post(NULL, TRUE);
-        $this->Request_model->approveRequest($post);
+        if(empty($id)){
+            return false;
+        }
+        $this->Request_model->approveRequest($id);
+        header('Location: /admin');
     }
 
-    public function decline_request()
+    public function decline_request($id)
     {
-        $post = $this->input->post(NULL, TRUE);
-        $this->Request_model->declineRequest($post);
+        if(empty($id)){
+            return false;
+        }
+        $this->Request_model->declineRequest($id);
+        header('Location: /admin');
     }
-
-
 
     public function getEventList()
     {
