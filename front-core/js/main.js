@@ -4,8 +4,6 @@ $(document).ready(function(){
     var getActivePage = $('head').attr('data-active-page');
 
 
-
-
     console.log($('#'+getActivePage));
     $('.user-dynamic').empty();
 
@@ -99,7 +97,7 @@ $(document).ready(function(){
 
     $('body').on('click','.cancel-event', function(){
         getId = $(this).attr('data-event-id');
-        var link = '/cancel-request';
+        var link = '/cancel-user-req';
         $.ajax({
             type: "POST",
             url: link,
@@ -108,6 +106,7 @@ $(document).ready(function(){
                 $('.success-overlay').addClass('show');
                 $('.buttons-container').html(" ");
                 $('#successText').text('Заявка була відізвана');
+                location.reload();
             }
         });
     });
@@ -115,7 +114,7 @@ $(document).ready(function(){
         getId = $(this).attr('data-event-id');
         var link = '/send_ticket';
 
-        if(getIsAuth == "true"){
+        if(getIsAuth == 1){
             $.ajax({
                 type: "POST",
                 url: link,
@@ -123,6 +122,7 @@ $(document).ready(function(){
                 success: function () {
                     $('.success-overlay').addClass('show');
                     $('#successText').text('Ви успішно зареєструвалися');
+                    location.reload();
                 }
             });
         }else{

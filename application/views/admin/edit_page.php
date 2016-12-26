@@ -29,7 +29,7 @@
                 <input type="text" name="quantity" value="<?=$event['quantity']?>">
             </div>
             <div class="field">
-                <label>Кількість місць</label>
+                <label>Посилання на зображення</label>
                 <input type="text" name="img" value="<?=$event['img']?>">
             </div>
             <button class="ui green button add-button">Редагувати</button>

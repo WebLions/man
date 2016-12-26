@@ -20,9 +20,21 @@ class Request_model extends CI_Model
         return $result;
     }
 
+    public function getUserRequestAcc($id)
+    {
+        $where = array(
+            'user_id' => $id,
+            'condition_id !=' => CANCELED
+        );
+        $this->db->where($where);
+        $result = $this->db->get($this->tableName);
+        $result = $result->result_array();
+        return $result;
+    }
+
     public function getUserRequestArr($id)
     {
-        $r_list = $this->getUserRequestList($id);
+        $r_list = $this->getUserRequestAcc($id);
         $userReq = array();
         foreach ($r_list as $request){
             $userReq[] = $request['event_id'];
@@ -74,6 +86,16 @@ class Request_model extends CI_Model
     public function cancelRequest($id)
     {
         $this->db->where('id', $id);
+        return $this->db->update($this->tableName, array('condition_id' => CANCELED));
+    }
+
+    public function cancelRequestMainpage($event_id, $uid)
+    {
+        $where = array(
+            'event_id' => $event_id,
+            'user_id' => $uid
+        );
+        $this->db->where($where);
         return $this->db->update($this->tableName, array('condition_id' => CANCELED));
     }
 
