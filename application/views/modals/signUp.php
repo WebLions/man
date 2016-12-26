@@ -14,7 +14,8 @@
                     <option value="4">Викладач університету</option>
                 </select>
             </article>
-            <input class="sign-up-event" type="submit" value="Зареєструватися">
+            <input class="sign-up-event main-button" type="submit" value="Зареєструватися">
+            <span class="already-sign-in">Я вже зареєстрований</span>
         </form>
         <div class="close-icon"></div>
     </div>

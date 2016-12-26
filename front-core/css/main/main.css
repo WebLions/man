@@ -50,12 +50,14 @@ main>aside ul li:hover{
     color:#69859d;
 }
 main>section{
-    width: calc(81vw - 1em);
+    width: 80em;
     background-color: #edf1f6;
     padding: 4.4em 0 3em 1em;
     flex-direction: column;
     margin-left: 20vw;
-    min-height: calc(100Vh - 6em);
+    min-height: 100vh;
+    align-items: center;
+    box-sizing: border-box;
 }
 main>section article{
     padding: 2em;
@@ -74,7 +76,7 @@ main>section article h2:hover a{
     text-decoration:underline;
 }
 main>section article p{
-    font-family: Sitka;
+    font-family: Roboto;
     font-size: 0.9em;
     margin-bottom: 2em;
     letter-spacing:-0.8px;
@@ -104,20 +106,21 @@ main>section article footer{
     margin: 0.5em 0;
 }
 .news-item{
-    min-height: 50%;
     width: 80%;
     max-width: 900px;
     margin-bottom: 1em;
     position:relative
 }
 .account{
-    width:40%;
+    width: 45%;
 }
 .events-container{
     max-width: 900px;
+    min-width: 900px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .news-item>header{
     max-height: 200px;
@@ -127,7 +130,13 @@ main>section article footer{
     width: 100%;
     margin-top: -8%;
 }
-.sign-up-event{
+.main-button:hover{
+    cursor:pointer;
+    background-color:#7a95ab;
+    color:#fff;
+    transition: all .3s ease-in-out;
+}
+.main-button{
     padding:1em 1.5em;
     font-size: 0.9em;
     border:2px solid #7a95ab;
@@ -139,12 +148,6 @@ main>section article footer{
     user-select: none;
     transition: all .3s ease-in-out;
     text-decoration: none;
-}
-.sign-up-event:hover{
-    cursor:pointer;
-    background-color:#7a95ab;
-    color:#fff;
-    transition: all .3s ease-in-out;
 }
 
 
@@ -302,13 +305,18 @@ form input[type="submit"]:hover{
     background-color: #fff;
     position:relative;
     min-height: 81vh;
+    width: 80%;
 }
 .props-item{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 3%;
+    padding: 3% 0;
+    border-bottom: 3px solid #edf1f6;
+}
+.props-item:last-child{
+    border:0;
 }
 .props-content{
     width: 50%;
@@ -318,7 +326,7 @@ form input[type="submit"]:hover{
     padding: 2em 0;
 }
 .props-content h2{
-    margin:7% 0;
+    /* margin:7% 0; */
     font-family: Arial;
     font-size:28px;
     line-height:42px;
@@ -333,15 +341,28 @@ form input[type="submit"]:hover{
 }
 .props-content header{
     position: relative;
-    background-color: rgba(58, 135, 227, 0.75);
     padding: 8px 20px;
-    color: #fff;
+    color: #333;
     font-family: arial;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.props-content header i{
+    position:absolute;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #232323;
 }
 .picture-block h2{
-    margin:1.5em 0;
+    margin: 1.5em 0 0;
     text-align:center;
+    font-family: HelveticaNeueLight;
 }
 .props-content header i img{
     width:16px;
@@ -351,11 +372,6 @@ form input[type="submit"]:hover{
     top: 4px;
     right: 8px;
     transition: all .5s ease-in-out;
-}
-.picture-block:hover figure{
-    transform: scale(1.1);
-    transition: width .5s ease-in-out;
-    cursor:pointer;
 }
 .picture-block figure{
     transition: width .5s ease-in-out;
@@ -375,13 +391,12 @@ form input[type="submit"]:hover{
     max-height: 0;
     transition: all .5s ease-in-out;
     overflow: hidden;
-    border: 2px solid #3a87e3;
     margin-bottom: 10px;
     padding: 0;
 }
 .props-item-line article p{
     font-family: Arial;
-    margin:10px 0 10px 10%;
+    margin: 10px 5% 10px 10%;
     position: relative;
 }
 .props-item-line article p:after{
@@ -391,7 +406,7 @@ form input[type="submit"]:hover{
     bottom: -7px;
     left:0;
     height:1px;
-    background-color: #3a87e3;
+    background-color: #999;
 }
 .props-item-line article p:last-child:after{
     content: '';
@@ -409,7 +424,6 @@ form input[type="submit"]:hover{
 .props-item-line.active article{
     max-height: 320px;
     transition: all .5s ease-in-out;
-    padding:20px 0;
 }
 .props-item-line.active header i img{
     transition: all .5s ease-in-out;
@@ -486,4 +500,13 @@ form input[type="submit"]:hover{
 }
 .add-button{
     margin-top: 1em !important;
+}
+.control-buttons{
+    display: flex;
+    font-size: 14px;
+}
+.buttons-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }

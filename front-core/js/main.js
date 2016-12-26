@@ -1,4 +1,39 @@
 $(document).ready(function(){
+
+    var getIsAuth = $('head').attr('data-isAuth');
+    var getActivePage = $('head').attr('data-active-page');
+
+
+
+
+    console.log($('#'+getActivePage));
+    $('.user-dynamic').empty();
+
+    if(getIsAuth == 1){
+        $('.user-dynamic').append(
+        '<li id="account">'+
+            '<a href="/account">'+
+                'Особистий кабінет'+
+            '</a>'+
+        '</li>'+
+        '<li>'+
+            '<a href="/user/logout">'+
+                'Вийти'+
+            '</a>'+
+        '</li>'
+        );
+    }else{
+        $('.user-dynamic').append(
+        '<li class="sign-in">' +
+            'Увійти' +
+        '</li>'+
+        '<li class="sign-up">'+
+            'Зареєструватися'+
+        '</li>'
+        );
+    }
+
+    $('#'+getActivePage).addClass('active');
     
     $('header li').hover(function(){
         var margin = $(this).offset();
@@ -8,11 +43,12 @@ $(document).ready(function(){
 
     $('.props-item-line').on('click','header', function(){
         $(this).parent().toggleClass('active');
-    })
+    });
+
     $('body').on('click','.close', function(){
         $('.form-overlay').removeClass('show');
         $('.success-overlay').removeClass('show');
-    })
+    });
 
     $('.sign-up')
         .click(function(){
@@ -48,43 +84,58 @@ $(document).ready(function(){
         }
     });
 
-    var newItemId;
+    var getId;
 
     $('.delete-new').click(function(){
-        newItemId = $(this).parent().attr('data-new-id');
+        getId = $(this).parent().attr('data-new-id');
         $('.success-overlay').addClass('show');
-        $('.button').html(" ");
+        $('.buttons-container').html(" ");
         $('#successText').text('Ви упевнені що хочете відізвати заявку?');
-        $('.success-form').append(
-            '<div class="button delete-yes">Так</div>'+
+        $('.buttons-container').append(
+            '<div class="button cancel-event">Так</div>'+
             '<div class="button close">Ні</div>'
         );
     });
 
-    $('body').on('click','.delete-yes', function(){
-        var link = '/account/cancelRequest';
+    $('body').on('click','.cancel-event', function(){
+        getId = $(this).attr('data-event-id');
+        var link = '/cancel-request';
         $.ajax({
             type: "POST",
             url: link,
-            data: newItemId,
+            data: {id : getId},
             success: function () {
-                $('.button').html(" ");
+                $('.success-overlay').addClass('show');
+                $('.buttons-container').html(" ");
                 $('#successText').text('Заявка була відізвана');
             }
         });
     });
-    $('.sign-up-event').click(function () {
-        var getId = $(this).attr('data-event-id');
+    $('.sign-to-event').click(function () {
+        getId = $(this).attr('data-event-id');
         var link = '/send_ticket';
-        $.ajax({
-            type: "POST",
-            url: link,
-            data: {'event_id':getId},
-            success: function () {
-                $('.success-overlay').addClass('show');
-                $('#successText').text('Ви успішно зареєструвалися');
-            }
-        });
+
+        if(getIsAuth == "true"){
+            $.ajax({
+                type: "POST",
+                url: link,
+                data: {event_id : getId},
+                success: function () {
+                    $('.success-overlay').addClass('show');
+                    $('#successText').text('Ви успішно зареєструвалися');
+                }
+            });
+        }else{
+            $('#signUp').toggleClass('show');
+        }
+
+    });
+    $('.close-icon').click(function(){
+        $(this).closest('.form-overlay').removeClass('show');
+    });
+    $('.already-sign-in').click(function(){
+        $(this).closest('.form-overlay').removeClass('show');
+        $('#signIn').toggleClass('show');
     });
 
 

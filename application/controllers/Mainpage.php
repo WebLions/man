@@ -44,6 +44,8 @@ class Mainpage extends CI_Controller
         $event['category'] = $this->Category_model->getCategory($event['category_id']);
         $data = array("event"=>$event);
         $this->data['active'] = "home";
+        $userReq = $this->getUserRequests();
+        $this->data['userReq'] = $userReq;
         $this->load->view('header', $this->data);
         $this->load->view('news/new', $data);
         $this->load->view('modals/signIn');

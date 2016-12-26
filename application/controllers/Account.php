@@ -37,13 +37,14 @@ class Account extends CI_Controller
         $this->data['active'] = "account";
         $this->load->view('header', $this->data);
         $this->load->view('account/account');
+        $this->load->view('modals/success');
         $this->load->view('footer');
 
     }
 
     public function cancelRequest()
     {
-        $post = $this->input->post(NULL, TRUE);
+        $post = $this->input->post('id', TRUE);
         if(empty($post)){
             return 'Empty id!';
         }
