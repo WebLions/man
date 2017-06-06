@@ -527,3 +527,10 @@ form input[type="submit"]:hover{
     background-color:#fff;
     color:#7a95ab;
 }
+table, td, tr{
+    border: 1px solid #ddd;
+    text-align: center;
+}
+table{
+    margin: 5px;
+}

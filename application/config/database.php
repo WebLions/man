@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'bedevl00.mysql.ukraine.com.ua',
-	'username' => 'bedevl00_man',
-	'password' => 'bedevl00_man',
-	'database' => 'bedevl00_man',
+	'hostname' => 'ngorg.mysql.ukraine.com.ua',
+	'username' => 'ngorg_man',
+	'password' => '7rug4j22',
+	'database' => 'ngorg_man',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

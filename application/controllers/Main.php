@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Mainpage extends CI_Controller
+class Main extends CI_Controller
 {
     public function __construct()
     {
@@ -120,6 +120,6 @@ class Mainpage extends CI_Controller
         if(empty($post)){
             return 'Empty id!';
         }
-        $this->Request_model->cancelRequestMainpage($post, $_SESSION['user']['id']);
+        $this->Request_model->cancelRequestMain($post, $_SESSION['user']['id']);
     }
 }

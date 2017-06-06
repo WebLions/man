@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Condition_model extends CI_Model
+class Condition_model extends MY_Model
 {
-    private $tableName = 'conditions';
+    protected $tableName = 'conditions';
 
     public function getCondition($id)
     {

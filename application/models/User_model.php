@@ -1,12 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_model extends CI_Model
+class User_model extends MY_Model
 {
-    private $admin_login = 'admin';
-    private $admin_password = '$2y$10$NU7cso/T4vaTjhmbaAyj8OwkO2Qnct9E2hpm2Zbp4cP8vcLMpw0Ya';
-
-    private $tableName = 'users';
+    protected $tableName = 'users';
 
     public function login($email, $password)
     {
@@ -26,8 +23,13 @@ class User_model extends CI_Model
 
     public function loginAdmin($login, $password)
     {
-        if(password_verify($password, $this->admin_password) AND $login == $this->admin_login){
+        $admin = $this->getUser(1);
+        if(empty($admin)){
+            return false;
+        }
+        if(password_verify($password, $admin['password']) AND $login == $admin['email']){
             $_SESSION['admin'] = true;
+            $_SESSION['user'] = true;
             return true;
         }else{
             return false;
@@ -69,9 +71,7 @@ class User_model extends CI_Model
 
     public function getUser($id)
     {
-        $this->db->where('id', $id);
-        $result = $this->db->get($this->tableName);
-        $result = $result->row_array();
-        return $result;
+        return $this->selectById($id);
     }
+
 }

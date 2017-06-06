@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Request_model extends CI_Model
+class Request_model extends MY_Model
 {
-    private $tableName = 'requests';
+    protected $tableName = 'requests';
 
     public function getRequestList()
     {
@@ -89,7 +89,7 @@ class Request_model extends CI_Model
         return $this->db->update($this->tableName, array('condition_id' => CANCELED));
     }
 
-    public function cancelRequestMainpage($event_id, $uid)
+    public function cancelRequestMain($event_id, $uid)
     {
         $where = array(
             'event_id' => $event_id,

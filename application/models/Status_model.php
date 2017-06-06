@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Status_model extends CI_Model
+class Status_model extends MY_Model
 {
     public function getStatusList()
     {
