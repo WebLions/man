@@ -26,11 +26,11 @@
                         }
                     }
                 }
-                if($signed):?>
-                    <div class="cancel-event main-button" data-event-id="<?=$event['id']?>">Відписатись</div>
-                <?php else:?>
-                    <div class="sign-to-event main-button" data-event-id="<?=$event['id']?>">Записатись</div>
-                <?php endif;?>
+//                if($signed):?>
+<!--                    <div class="cancel-event main-button" data-event-id="--><?//=$event['id']?><!--">Відписатись</div>-->
+<!--                --><?php //else:?>
+<!--                    <div class="sign-to-event main-button" data-event-id="--><?//=$event['id']?><!--">Записатись</div>-->
+<!--                --><?php //endif;?>
             </footer>
         </article>
     </div>

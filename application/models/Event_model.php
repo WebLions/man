@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Event_model extends CI_Model
+class Event_model extends MY_Model
 {
-    private $tableName = 'events';
+    protected $tableName = 'events';
 
     public function getEventList()
     {

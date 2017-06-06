@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Category_model extends CI_Model
+class Category_model extends MY_Model
 {
-    private $tableName = 'categories';
+    protected $tableName = 'categories';
 
     public function getCategory($id)
     {
