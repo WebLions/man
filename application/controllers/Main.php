@@ -34,8 +34,6 @@ class Main extends CI_Controller
         $this->load->view('modals/signUp');
         $this->load->view('modals/success');
         $this->load->view('footer');
-
-//        $this->load->view('modals/modal');
     }
 
     public function getEvent($id)
@@ -70,21 +68,19 @@ class Main extends CI_Controller
         if(empty($post)){
             return FALSE;
         }
-            if(isset($_SESSION['user'])) {
-                $post['user_id'] = $_SESSION['user']['id'];
-                $this->Request_model->addRequest($post);
-            }else{
-                return FALSE;
-            }
-    }
-
-    public function showRegForm()
-    {
-
+        if(isset($_SESSION['user'])) {
+            $post['user_id'] = $_SESSION['user']['id'];
+            $this->Request_model->addRequest($post);
+        }else{
+            return FALSE;
+        }
     }
 
     public function about()
     {
+        $categories = $this->Category_model->getCategoryList();
+//        debug($categories);
+        viewTreeList($categories);exit;
         $this->data['competitive_list'] = $this->Competition_model->getCompetitionList();
         $this->data['active'] = "about";
         $this->load->view('header', $this->data);

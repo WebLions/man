@@ -19,4 +19,11 @@ class Category_model extends MY_Model
         $result = $result->result_array();
         return $result;
     }
+
+    public function getCategoryList()
+    {
+        $result = $this->selectAll();
+        $result = buildTree($result);
+        return $result;
+    }
 }
