@@ -46,7 +46,7 @@ class MY_Model extends CI_Model
      * @param null | string $table - custom query table
      * @return bool|array
      */
-    public function selectWhere(array $whereArr, $select = '*', $table = null)
+    public function selectWhere(array $whereArr = null, $select = '*', $table = null)
     {
         if(empty($whereArr)){
             return false;
@@ -80,6 +80,14 @@ class MY_Model extends CI_Model
         }
         $this->db->insert($this->tableName, $data);
         return $this->db->insert_id();
+    }
+
+    public function insertBatch(array $data)
+    {
+        if(empty($data)){
+            return false;
+        }
+        return $this->db->insert_batch($this->tableName, $data);
     }
 
     /**
